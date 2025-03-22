@@ -54,23 +54,21 @@ class Widget_Manager
 
     public function pro_widgets_promote($widgets_manager)
     {
-        if (! Repeaterly::is_pro_activated()) {
-            $promotion_widgets = [
-                [
-                    'widget_name' => 'repeaterly-loop-grid',
-                    'widget_title' => 'ACF Repeater Loop Grid (Pro)',
-                    'widget_icon' => 'eicon-loop-builder',
-                ],
-                [
-                    'widget_name' => 'repeaterly-image-carousel',
-                    'widget_title' => 'ACF Image Carousel (Pro)',
-                    'widget_icon' => 'eicon-slider-push',
-                ],
-            ];
+        $promotion_widgets = [
+            [
+                'widget_name' => 'repeaterly-loop-grid',
+                'widget_title' => 'ACF Repeater Loop Grid (Pro)',
+                'widget_icon' => 'eicon-loop-builder',
+            ],
+            [
+                'widget_name' => 'repeaterly-image-carousel',
+                'widget_title' => 'ACF Image Carousel (Pro)',
+                'widget_icon' => 'eicon-slider-push',
+            ],
+        ];
 
-            foreach ($promotion_widgets as $promotion_widget) {
-                $widgets_manager->register(new Promotion([], $promotion_widget));
-            }
+        foreach ($promotion_widgets as $promotion_widget) {
+            $widgets_manager->register(new Promotion([], $promotion_widget));
         }
     }
 }

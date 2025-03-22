@@ -162,7 +162,7 @@ No, Repeaterly works with the free version of Elementor. You can create dynamic 
 Repeaterly offers dynamic buttons, images, text, icon lists, image carousels, galleries, and a Repeater Loop Grid (Pro) for creating custom layouts with ACF Repeater Fields.
 
 = How does the Repeater Loop Builder work? =  
-The Repeater Loop Builder (Pro) allows you to create custom layouts for ACF Repeater Fields using Elementor templates. You can design unique grids, lists, and carousels without limitations.
+The Repeater Loop Builder (Pro) allows you to create custom layouts for ACF Repeater Fields using Elementor templates. You can design unique grids, lists, and other sections without limitations.
 
 = Will Repeaterly slow down my website? =  
 No, Repeaterly is optimized for performance. It helps reduce database bloat by reusing layouts instead of duplicating sections, making your site lean and fast.
