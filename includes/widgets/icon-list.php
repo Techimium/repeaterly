@@ -34,12 +34,14 @@ class Icon_List extends Widget_Icon_List {
 	}
 
 	protected function register_controls() {
-		$this->start_controls_section(
-			'section_icon',
-			[
-				'label' => esc_html__( 'Icon List', 'repeaterly' ),
-			]
-		);
+		parent::register_controls();
+		$this->remove_control('icon_list');
+
+		$this->start_injection( [
+			'type' => 'section',
+			'at' => 'start',
+			'of' => 'section_icon',
+		] );
 
 		$this->add_control('repeater_field', [
             'label' => __('Repeater Field Name', 'repeaterly'),
@@ -71,11 +73,7 @@ class Icon_List extends Widget_Icon_List {
 			]
 		);
 
-		$this->end_controls_section();
-
-		parent::register_controls();
-
-		$this->remove_control('icon_list');
+		$this->end_injection();
 	}
 
 	public function get_settings_for_display( $setting_key = null ) {

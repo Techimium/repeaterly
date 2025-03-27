@@ -42,35 +42,6 @@ class Image extends Widget_Image
 
     protected function register_controls()
     {
-        $this->start_controls_section(
-            'section_image',
-            [
-                'label' => esc_html__('Heading', 'repeaterly'),
-            ]
-        );
-
-        $this->add_control(
-            'field_type',
-            [
-                'label' => esc_html__('Image Source', 'repeaterly'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => Dynamic_Content::FEATURED_IMAGE,
-				'options' => Dynamic_Content::get_image_sources(),
-            ]
-        );
-        $this->add_control(
-            'link_to',
-            [
-                'label' => esc_html__('Link Source', 'repeaterly'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'file',
-                'options' => array_merge(Dynamic_Content::get_link_sources(), ['file'  => esc_html__('Lightbox', 'repeaterly')]),
-                'separator' => 'after',
-            ]
-        );
-
-        $this->end_controls_section();
-
         parent::register_controls();
 
         $this->update_control('image', [
@@ -103,6 +74,34 @@ class Image extends Widget_Image
                 'link_to' => [Dynamic_Content::STATIC, Dynamic_Content::CUSTOM, Dynamic_Content::SUB],
             ],
         ]);
+        
+        $this->start_injection( [
+			'type' => 'section',
+			'at' => 'start',
+			'of' => 'section_image',
+		] );
+
+        $this->add_control(
+            'field_type',
+            [
+                'label' => esc_html__('Image Source', 'repeaterly'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => Dynamic_Content::FEATURED_IMAGE,
+				'options' => Dynamic_Content::get_image_sources(),
+            ]
+        );
+        $this->add_control(
+            'link_to',
+            [
+                'label' => esc_html__('Link Source', 'repeaterly'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'file',
+                'options' => array_merge(Dynamic_Content::get_link_sources(), ['file'  => esc_html__('Lightbox', 'repeaterly')]),
+                'separator' => 'after',
+            ]
+        );
+
+        $this->end_injection();
     }
 
     private function has_caption($settings)

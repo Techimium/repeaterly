@@ -76,7 +76,7 @@ if (!class_exists('Repeaterly')) {
          */
         static function pro_link()
         {
-            return 'https://techimium.com';
+            return 'https://techimium.com/plugins/repeaterly';
         }
 
         static function run()
@@ -134,32 +134,40 @@ if (!class_exists('Repeaterly')) {
 
         public function admin_notice_missing_main_plugin(): void
         {
-
-            if (isset($_GET['activate'])) unset($_GET['activate']);
-
             $message = sprintf(
                 /* translators: %1$s: Plugin name (Repeaterly), %2$s: Required plugin name (Elementor). */
-                esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'repeaterly'),
-                '<strong>' . esc_html__('Repeaterly', 'repeaterly') . '</strong>',
-                '<strong>' . esc_html__('Elementor', 'repeaterly') . '</strong>'
+                __('"%1$s" requires "%2$s" to be installed and activated.', 'repeaterly'),
+                '<strong>' . __('Repeaterly', 'repeaterly') . '</strong>',
+                '<strong>' . __('Elementor', 'repeaterly') . '</strong>'
             );
 
-            printf('<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', esc_html($message));
+            $allowed_html = [
+                'strong' => [],
+            ];
+
+            printf(
+                '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>',
+                wp_kses($message, $allowed_html)
+            );
         }
 
         public function admin_notice_missing_acf_plugin(): void
         {
-
-            if (isset($_GET['activate'])) unset($_GET['activate']);
-
             $message = sprintf(
                 /* translators: %1$s: Plugin name (Repeaterly), %2$s: Required plugin name (Advanced Custom Fields). */
-                esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'repeaterly'),
-                '<strong>' . esc_html__('Repeaterly', 'repeaterly') . '</strong>',
-                '<strong>' . esc_html__('Advanced Custom Fields', 'repeaterly') . '</strong>'
+                __('"%1$s" requires "%2$s" to be installed and activated.', 'repeaterly'),
+                '<strong>' . __('Repeaterly', 'repeaterly') . '</strong>',
+                '<strong>' . __('Advanced Custom Fields', 'repeaterly') . '</strong>'
             );
 
-            printf('<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', esc_html($message));
+            $allowed_html = [
+                'strong' => [],
+            ];
+
+            printf(
+                '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>',
+                wp_kses($message, $allowed_html)
+            );
         }
 
         /**

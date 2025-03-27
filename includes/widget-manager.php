@@ -2,7 +2,6 @@
 
 namespace Repeaterly\Includes;
 
-use Repeaterly;
 use Repeaterly\Includes\Widgets\Button;
 use Repeaterly\Includes\Widgets\Heading;
 use Repeaterly\Includes\Widgets\Icon_List;

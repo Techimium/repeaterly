@@ -2,7 +2,7 @@
 Contributors: techimium, mdashraful
 Tags: acf, elementor, elementor widgets, repeater, custom fields
 Requires at least: 4.7
-Tested up to: 6.7.2
+Tested up to: 6.7
 Stable tag: 1.0.0
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -44,7 +44,7 @@ With Repeaterly, you can:
 
 ✅ **Save time** by making updates in ACF instead of editing multiple Elementor sections.
 
-👉 [Get Repeaterly Pro](https://techimium.com/repeaterly-pro)
+👉 [Get Repeaterly Pro](https://techimium.com/plugins/repeaterly)
 
 ## 🚀 Features: What Can You Do with Repeaterly?
 
@@ -78,7 +78,7 @@ With Repeaterly Pro, you can:
 
 - Add repeater sub-fields for even more advanced dynamic content.
 
-👉 [Get Repeaterly Pro](https://techimium.com/repeaterly-pro)
+👉 [Get Repeaterly Pro](https://techimium.com/plugins/repeaterly)
 
 ## 🎯 Who is Repeaterly For?
 
@@ -122,7 +122,7 @@ With Repeaterly, you can select your content source, including custom fields and
 
 ### 🔥 Pro Version:
 
-1. Purchase **[Repeaterly Pro](https://techimium.com/repeaterly-pro)** from our official website.
+1. Purchase **[Repeaterly Pro](https://techimium.com/plugins/repeaterly)** from our official website.
 
 2. Install & activate **Repeaterly Pro plugin** alongside the free version.
 
@@ -132,7 +132,7 @@ With Repeaterly, you can select your content source, including custom fields and
 
 Don’t let Elementor’s limitations hold you back. With **Repeaterly**, you can build powerful, **dynamic websites** effortlessly!
 
-👉 [Get Repeaterly Pro](https://techimium.com/repeaterly-pro)
+👉 [Get Repeaterly Pro](https://techimium.com/plugins/repeaterly)
 
 ---
 

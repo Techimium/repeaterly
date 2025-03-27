@@ -31,36 +31,7 @@ class Heading extends Widget_Heading
 
     protected function register_controls()
     {
-        $this->start_controls_section(
-            'section_title',
-            [
-                'label' => esc_html__('Heading', 'repeaterly'),
-            ]
-        );
-
-        $this->add_control(
-			'field_type',
-			[
-				'label' => esc_html__('Text Source', 'repeaterly'),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => Dynamic_Content::STATIC,
-				'options' => Dynamic_Content::get_text_sources(),
-			]
-		);
-		$this->add_control(
-			'link_type',
-			[
-				'label' => esc_html__('Link Source', 'repeaterly'),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => Dynamic_Content::STATIC,
-				'options' => Dynamic_Content::get_link_sources(),
-				'separator' => 'after',
-			]
-		);
-
-        $this->end_controls_section();
-
-        parent::register_controls();
+		parent::register_controls();
 
         $this->update_control('title', [
 			'label' => __('Text', 'repeaterly'),
@@ -89,6 +60,34 @@ class Heading extends Widget_Heading
 				'link_type' => [Dynamic_Content::STATIC, Dynamic_Content::CUSTOM, Dynamic_Content::SUB],
 			],
 		]);
+		
+		$this->start_injection( [
+			'type' => 'section',
+			'at' => 'start',
+			'of' => 'section_title',
+		] );
+
+        $this->add_control(
+			'field_type',
+			[
+				'label' => esc_html__('Text Source', 'repeaterly'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => Dynamic_Content::STATIC,
+				'options' => Dynamic_Content::get_text_sources(),
+			]
+		);
+		$this->add_control(
+			'link_type',
+			[
+				'label' => esc_html__('Link Source', 'repeaterly'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => Dynamic_Content::STATIC,
+				'options' => Dynamic_Content::get_link_sources(),
+				'separator' => 'after',
+			]
+		);
+
+        $this->end_injection();
     }
 
     protected function is_dynamic_content(): bool
