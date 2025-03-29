@@ -42,6 +42,6 @@
     <div class="repeater-cta">
         <h2>Need More? Try Our Pro Version</h2>
         <p>Unlock even more powerful features like custom ACF Repeater Loop Builder.</p>
-        <a href="https://techimium.com/repeaterly-pro" class="cta-button">Get Repeater Pro Now</a>
+        <a href="https://repeaterly.com" class="cta-button">Get Repeater Pro Now</a>
     </div>
 </div>

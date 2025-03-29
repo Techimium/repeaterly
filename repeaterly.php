@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Repeaterly
- * Plugin URI: https://techimium.com/repeaterly
+ * Plugin URI: https://repeaterly.com
  * Description: Seamlessly integrate ACF repeater and gallery fields into Elementor, enhancing your design capabilities.
  * Version: 1.0.0
  * Author: Techimium
@@ -76,7 +76,7 @@ if (!class_exists('Repeaterly')) {
          */
         static function pro_link()
         {
-            return 'https://techimium.com/plugins/repeaterly';
+            return 'https://repeaterly.com';
         }
 
         static function run()
