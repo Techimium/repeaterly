@@ -2,6 +2,7 @@
 
 namespace Repeaterly\Includes\Widgets;
 
+use Elementor\Plugin;
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Utils;
 use Elementor\Widget_Heading;
@@ -32,6 +33,8 @@ class Heading extends Widget_Heading
     protected function register_controls()
     {
 		parent::register_controls();
+
+		$this->remove_control(Utils::ANIMATED_HEADLINE . '_promotion');
 
         $this->update_control('title', [
 			'label' => __('Text', 'repeaterly'),
@@ -101,6 +104,10 @@ class Heading extends Widget_Heading
 
 		if ($this->get_settings('field_type')) {
 			$settings['title'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('title'));
+		}
+
+		if ( Plugin::$instance->editor->is_edit_mode() && $settings['title'] == '' ) {
+			$settings['title'] = esc_html__('Dynamic Text', 'repeaterly');
 		}
 
 		if ($this->get_settings('link_type')) {

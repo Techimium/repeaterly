@@ -81,9 +81,9 @@ class Icon_List extends Widget_Icon_List {
 
 		$settings['icon_list'] = [];
 
-		$list = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('repeater_field'));
+		$list = Dynamic_Content::get_value(Dynamic_Content::SUB, $this->get_settings('repeater_field'));
 		if(empty($list)){
-			$list = Dynamic_Content::get_value(Dynamic_Content::SUB, $this->get_settings('repeater_field'));
+			$list = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('repeater_field'));
 		}
 
 		$icon = $this->get_settings('selected_icon');
