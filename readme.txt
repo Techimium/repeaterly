@@ -2,7 +2,7 @@
 Contributors: techimium, mdashraful
 Tags: acf, elementor, elementor widgets, repeater, custom fields
 Requires at least: 5.0
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 1.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -26,7 +26,7 @@ That’s why we built **Repeaterly** – a powerful plugin that lets you seamles
 
 🌿 **Nested Repeater Support (Pro)** – Tackle nested ACF Repeaters with drag-and-drop ease for complex layouts.**.
 
-🔄 **Repeater Loop Builder (Pro)** – Design custom **loop layouts** for ACF repeater fields without limitations.
+🔄 **Repeater Loop Builder (Pro)** – Effortlessly design **custom loop** layouts for ACF Repeater fields, including carousels, with no limitations.
 
 🖼️ **Dynamic Content Widgets** – Display dynamic text, images, buttons, galleries, and more.
 
@@ -66,7 +66,9 @@ Repeaterly comes packed with powerful widgets to make your Elementor designs dyn
 
 - **Dynamic Gallery** Extend Elementor’s gallery widget with dynamic image sources from ACF fields.
 
-- **Dynamic Repeater Loop Grid** (Pro) Create custom loop grids with custom layout using ACF repeater fields and Elementor templates. Perfect for advanced layouts where you need to duplicate sections/containers.
+- **ACF Repeater Loop Grid** (Pro) Create custom loop grids with custom layout using ACF repeater fields and Elementor templates. Perfect for advanced layouts where you need to duplicate sections/containers.
+
+- **ACF Repeater Loop Carousel** (Pro) Design fully custom carousels powered by ACF Repeater fields, using Elementor templates for complete styling flexibility.
 
 - **Nested ACF Repetaer Field Support** (Pro) Effortlessly render nested ACF Repeater fields in Elementor—build complex, dynamic layouts like pricing tables or multi-level lists with simple drag-and-drop control.
 
@@ -78,7 +80,7 @@ The Pro version of Repeaterly unlocks the **ACF Repeater Loop Grid** widget, whi
 
 With Repeaterly Pro, you can:
 
-- Create a custom loop grid with Elementor templates for ACF Repeater fields just like **Elementor Pro's loop builder** for different post type even **without Elementor Pro**.
+- Create a custom loop grid or carousel with Elementor templates for ACF Repeater fields just like **Elementor Pro's loop builder** for different post type even **without Elementor Pro**.
 
 - Use any Elementor widget inside your loop grid template and pull dynamic data from custom fields.
 
@@ -196,12 +198,14 @@ If you need help, you can check our documentation or contact our support team vi
 
 1. Available Widgets
 2. ACF Repeater Loop Builder (Pro)
-3. ACF Repeater List
-4. ACF Gallery
-5. ACF Image Carousel (Pro)
-6. Dynamic Text Widget
-7. Dynamic Image Widget
-8. Dynamic Button Widget
+3. ACF Repeater Loop Builder - Carousel (Pro)
+4. Nested Repeater Support (Pro)
+5. ACF Repeater List
+6. ACF Gallery
+7. ACF Image Carousel (Pro)
+8. Dynamic Text Widget
+9. Dynamic Image Widget
+10. Dynamic Button Widget
 
 == Changelog ==
 
