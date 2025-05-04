@@ -18,6 +18,8 @@ That’s why we built **Repeaterly** – a powerful plugin that lets you seamles
 
 [youtube https://www.youtube.com/watch?v=6Y1aU9wx-lo]
 
+[youtube https://www.youtube.com/watch?v=l8XMcvgwVEw]
+
 ## 🔥 What Makes Repeaterly a Game-Changer?
 
 🚀 **No Elementor Pro Needed** – Use dynamic content without upgrading to Elementor Pro.
