@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Repeaterly
  * Plugin URI: https://repeaterly.com
- * Description: Seamlessly integrate ACF repeater and gallery fields into Elementor, enhancing your design capabilities.
+ * Description: Seamlessly integrate dynamic tags with ACF repeater & relationship fields into Elementor, enhancing your design capabilities.
  * Version: 2.0.0
  * Author: Techimium
  * Author URI: https://techimium.com
