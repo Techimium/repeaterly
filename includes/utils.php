@@ -4,7 +4,7 @@ namespace Repeaterly\Includes;
 
 class Utils {
     public static function trim_words(string $text, int $max_length = 20, string $more = '...') {
-        $words = explode(' ', strip_tags($text));
+        $words = explode(' ', wp_strip_all_tags($text));
         
         if (count($words) <= $max_length) {
             return implode(' ', $words);

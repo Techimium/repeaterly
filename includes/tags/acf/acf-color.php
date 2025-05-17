@@ -50,10 +50,8 @@ class ACF_Color extends Tag
 		$value = Acf::get_field_value($key);
 
 		if (is_string($value) || is_numeric($value)) {
-			$value = wp_kses_post($value);
+			echo wp_kses_post($value);
 		}
-
-		echo $value;
 	}
 
 	protected function register_controls()

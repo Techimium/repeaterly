@@ -93,7 +93,6 @@ class Post_Excerpt extends Tag {
 
 		$max_length = (int) $settings['max_length'];
 		$excerpt = $this->get_post_excerpt( $settings, $post );
-		var_dump( $excerpt );
 		$excerpt = Utils::trim_words( $excerpt, $max_length );
 
 		echo wp_kses_post( $excerpt );

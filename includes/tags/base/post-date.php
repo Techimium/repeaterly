@@ -91,6 +91,7 @@ class Post_Date extends Tag {
 				return;
 			}
 			$value = sprintf(
+				/* translators: %s: Post date. */
 				esc_html__( '%s ago', 'repeaterly' ),
 				human_time_diff( $timestamp )
 			);

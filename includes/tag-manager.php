@@ -71,7 +71,7 @@ class Tag_Manager
         $tags_manager->register_group(
             'repeaterly',
             [
-                'title' => esc_html__('Repeaterly', 'repterly')
+                'title' => esc_html__('Repeaterly', 'repeaterly')
             ]
         );
     }
