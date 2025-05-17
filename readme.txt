@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf, elementor, elementor widgets, repeater, custom fields
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.1
+Stable tag: 2.0.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -210,6 +210,9 @@ If you need help, you can check our documentation or contact our support team vi
 10. Dynamic Button Widget
 
 == Changelog ==
+
+= 1.0.1 =
+Added: Dynamic tags support
 
 = 1.0.1 =
 Improved: Dynamic list and heading widget.
