@@ -4,10 +4,10 @@ namespace Repeaterly\Includes;
 
 class Acf
 {
-    public static function get_field_value($key)
+    public static function get_field_value($key, $post_id = false)
     {
         if (function_exists('get_field')) {
-            $field = !empty(get_sub_field_object($key)) ? get_sub_field_object($key) : get_field_object($key);
+            $field = !empty(get_sub_field_object($key)) ? get_sub_field_object($key) : get_field_object($key, $post_id);
 
             if ($field && isset($field['type'])) {
                 $value = $field['value'];
@@ -26,7 +26,7 @@ class Acf
                         break;
 
                     case 'oembed':
-                        $value = self::get_queried_object_meta($key);
+                        $value = self::get_queried_object_meta($key, $post_id);
                         break;
                     case 'google_map':
                         $meta = self::get_queried_object_meta($key);
@@ -51,22 +51,22 @@ class Acf
                         break;
                 }
             } else {
-                $value = get_field($key);
+                $value = get_field($key, $post_id);
             }
         } else {
             // Fallback if ACF not installed.
-            $value = get_post_meta(get_the_ID(), $key, true);
+            $value = get_post_meta($post_id ? $post_id : get_the_ID(), $key, true);
         }
 
         return $value;
     }
 
-    protected static function get_queried_object_meta($key)
+    protected static function get_queried_object_meta($key, $post_id = false)
     {
         $value = '';
 
         if (is_singular()) {
-            $value = get_post_meta(get_the_ID(), $key, true);
+            $value = get_post_meta($post_id ? $post_id : get_the_ID(), $key, true);
         } elseif (is_tax() || is_category() || is_tag()) {
             $value = get_term_meta(get_queried_object_id(), $key, true);
         }
