@@ -18,9 +18,9 @@ That’s why we built **Repeaterly** – a powerful plugin that lets you seamles
 
 With **version 2.0**, Repeaterly takes it up a notch with **Dynamic Tags** and a new **ACF Relationship Field Loop Builder**, making it a game-changer for web designers and developers.
 
-[youtube https://www.youtube.com/watch?v=6Y1aU9wx-lo]
+[youtube https://www.youtube.com/watch?v=7bFG8S_pY5Q]
 
-[youtube https://www.youtube.com/watch?v=l8XMcvgwVEw]
+[youtube https://www.youtube.com/watch?v=WPwdwvXJ2Vo]
 
 **Repeaterly** is the ultimate bridge between **Advanced Custom Fields (ACF)** and **Elementor**.
 
