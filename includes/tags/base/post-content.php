@@ -36,6 +36,6 @@ class Post_Content extends Tag
 	{
 		$content = !empty(get_the_content()) ? get_the_content() : $this->get_settings( 'fallback' );
 		
-		echo wp_kses_post( $content );
+		echo apply_filters( 'the_content', $content );
 	}
 }

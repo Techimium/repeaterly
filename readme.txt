@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf, elementor, dynamic tags, acf repeater, loop grid
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -247,6 +247,9 @@ If you need help, you can check our documentation or contact our support team vi
 9. ACF Image Carousel (Pro) 
 
 == Changelog ==
+
+= 2.0.2 =
+Fix: Post content dynamic tag
 
 = 2.0.1 =
 Improved: ACF integraion
