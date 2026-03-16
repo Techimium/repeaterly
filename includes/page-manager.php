@@ -64,12 +64,10 @@ class Page_Manager
                 'repeaterly-overview-css',
                 plugins_url('/assets/css/overview.css', Repeaterly::plugin_file()),
                 array(),
-                '1.0.0',
+                Repeaterly::plugin_version(),
                 'all'
             );
-            wp_enqueue_style(
-                'repeaterly-overview-css'
-            );
+            wp_enqueue_style('repeaterly-overview-css');
         }
     }
 }
