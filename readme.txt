@@ -1,8 +1,8 @@
 === Repeaterly ===
 Contributors: techimium, mdashraful
-Tags: acf, elementor, dynamic tags, acf repeater, loop grid
-Requires at least: 5.0
-Tested up to: 6.8
+Tags: elementor, dynamic tags, acf repeater, loop grid, repeater fields
+Requires at least: 5.9
+Tested up to: 6.9
 Stable tag: 2.0.3
 Requires PHP: 7.4
 License: GPLv2 or later
