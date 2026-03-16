@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Autoloader
  *
@@ -10,6 +11,10 @@
  */
 
 namespace Repeaterly;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 /**
  * Autoload classes based on their class names.

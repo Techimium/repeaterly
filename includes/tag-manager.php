@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Repeaterly\Includes\Tags\Acf\ACF_Color;
 use Repeaterly\Includes\Tags\Acf\ACF_Date_Time;
 use Repeaterly\Includes\Tags\Acf\ACF_Field;

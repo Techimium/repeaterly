@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Repeaterly;
 
 class Page_Manager

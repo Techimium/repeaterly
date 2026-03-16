@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Repeaterly;
 use Repeaterly\Includes\Widgets\Accordion;
 use Repeaterly\Includes\Widgets\Button;
