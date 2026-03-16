@@ -2,6 +2,8 @@
 
 namespace Repeaterly\Includes;
 
+use Repeaterly;
+use Repeaterly\Includes\Widgets\Accordion;
 use Repeaterly\Includes\Widgets\Button;
 use Repeaterly\Includes\Widgets\Heading;
 use Repeaterly\Includes\Widgets\Icon_List;
@@ -17,7 +19,8 @@ class Widget_Manager
     public function __construct()
     {
         add_action('elementor/elements/categories_registered', [$this, 'register_category']);
-        add_action('elementor/widgets/register', [$this, 'register_widgets']);
+        add_action('elementor/widgets/register', [$this, 'register_widgets'],1);
+        add_action('elementor/frontend/after_enqueue_scripts', [$this, 'register_all_widget_scripts']);
     }
 
     public static function init()
@@ -31,6 +34,7 @@ class Widget_Manager
 
     public function register_widgets($widgets_manager)
     {
+        $widgets_manager->register(new Accordion());
         $widgets_manager->register(new Heading());
         $widgets_manager->register(new Button());
         $widgets_manager->register(new Image());
@@ -69,5 +73,15 @@ class Widget_Manager
         foreach ($promotion_widgets as $promotion_widget) {
             $widgets_manager->register(new Promotion([], $promotion_widget));
         }
+    }
+
+    public function register_all_widget_scripts()
+    {
+        $this->register_script('repeaterly-accordion', 'accordion');
+    }
+    
+    protected function register_script($handle, $script_name)
+    {
+        wp_register_script($handle, Repeaterly::plugin_url() . 'assets/js/widgets/'. $script_name .'.js', ['elementor-frontend'], Repeaterly::plugin_version(), true);
     }
 }

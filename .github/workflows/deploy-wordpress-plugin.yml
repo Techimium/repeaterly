@@ -1,0 +1,73 @@
+name: Deploy WordPress Plugin
+
+# Trigger only on new Git tags
+on:
+  push:
+    tags:
+      - 'v*'  # e.g., v1.0.0
+  workflow_dispatch: # This adds the "Manual Run" button
+
+jobs:
+  deploy:
+    name: Deploy to WordPress.org SVN
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install SVN
+        run: sudo apt-get update && sudo apt-get install -y subversion rsync
+
+      - name: Deploy to WordPress.org SVN
+        env:
+          WPORG_USERNAME: ${{ secrets.WPORG_USERNAME }}
+          WPORG_PASSWORD: ${{ secrets.WPORG_PASSWORD }}
+          SVN_URL: https://plugins.svn.wordpress.org/repeaterly
+          DRY_RUN: false   # set to true to test without committing
+        run: |
+          set -e
+
+          echo "Deploying WordPress plugin to SVN..."
+
+          # Temporary directory
+          TMP_DIR=$(mktemp -d)
+          echo "Checking out SVN into $TMP_DIR"
+          svn checkout $SVN_URL $TMP_DIR --username $WPORG_USERNAME --password $WPORG_PASSWORD --non-interactive --trust-server-cert
+
+          # Copy plugin files to trunk
+          echo "Copying plugin files to trunk..."
+          rsync -av --delete ./ $TMP_DIR/trunk --exclude .github --exclude node_modules --exclude .git --exclude tests --exclude wp-assets
+
+          # Update assets folder (screenshots, banner, icons)
+          if [ -d "./assets" ]; then
+            echo "Updating assets folder..."
+            rsync -av --delete ./wp-assets/ $TMP_DIR/assets/
+          fi
+
+          # Determine plugin version from readme.txt stable tag
+          PLUGIN_VERSION=$(grep "^Stable tag:" readme.txt | awk '{print $3}')
+          echo "Plugin version detected: $PLUGIN_VERSION"
+
+          # Copy trunk to tag
+          if [ ! -z "$PLUGIN_VERSION" ]; then
+            echo "Creating tag $PLUGIN_VERSION..."
+            mkdir -p $TMP_DIR/tags/$PLUGIN_VERSION
+            rsync -av --delete $TMP_DIR/trunk/ $TMP_DIR/tags/$PLUGIN_VERSION/
+          fi
+
+          # Add new files and remove deleted files
+          cd $TMP_DIR
+          svn status | awk '{print $2}' | xargs -I{} svn add "{}" --force || true
+          svn status | grep '^!' | awk '{print $2}' | xargs -I{} svn delete "{}" || true
+
+          # Dry run mode
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry run mode ON. No commit will be made."
+            svn status
+            exit 0
+          fi
+
+          # Commit changes
+          echo "Committing to WordPress SVN..."
+          svn commit -m "Deploy version $PLUGIN_VERSION" --username $WPORG_USERNAME --password $WPORG_PASSWORD --non-interactive

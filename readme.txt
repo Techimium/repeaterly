@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf, elementor, dynamic tags, acf repeater, loop grid
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -87,6 +87,8 @@ Repeaterly comes packed with powerful widgets to make your Elementor designs dyn
 - **Dynamic Tags** Use ACF fields, subfields, and post data inside any Elementor widget — a feature normally locked behind Elementor Pro, now fully available for free with Repeaterly.
 
 - **Dynamic Icon List** Build dynamic lists using ACF repeater fields and sub-fields.
+
+- **Dynamic Accordion** Build dynamic accordion using ACF repeater fields and sub-fields.
 
 - **Dynamic Image Carousel** (Pro) A custom Image Carousel widget that supports dynamic image sources from custom fields.
 
@@ -243,10 +245,15 @@ If you need help, you can check our documentation or contact our support team vi
 5. Nested Repeater Support (Pro)
 6. ACF Relationship Loop Builder (Pro)
 7. ACF Repeater List
-8. ACF Gallery
-9. ACF Image Carousel (Pro) 
+8. Dynamic Accordion
+9. Live ACF Repeater Loop Preview
+10. ACF Gallery
+11. ACF Image Carousel (Pro) 
 
 == Changelog ==
+
+= 2.0.3 =
+Added: Dynamic Accordion
 
 = 2.0.2 =
 Fix: Post content dynamic tag
