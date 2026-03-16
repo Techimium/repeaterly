@@ -18,9 +18,9 @@ That’s why we built **Repeaterly** – a powerful plugin that lets you seamles
 
 With **version 2.0**, Repeaterly takes it up a notch with **Dynamic Tags** and a new **ACF Relationship Field Loop Builder**, making it a game-changer for web designers and developers.
 
-[youtube https://www.youtube.com/watch?v=7bFG8S_pY5Q]
+[youtube https://www.youtube.com/watch?v=QU9MhjB3cWs]
 
-[youtube https://www.youtube.com/watch?v=WPwdwvXJ2Vo]
+[youtube https://www.youtube.com/watch?v=l8XMcvgwVEw]
 
 **Repeaterly** is the ultimate bridge between **Advanced Custom Fields (ACF)** and **Elementor**.
 
@@ -51,6 +51,8 @@ With **version 2.0**, Repeaterly takes it up a notch with **Dynamic Tags** and a
 ### Dynamic Tags: Power Up Any Widget **(FREE)**
 
 Say goodbye to Elementor Pro’s paywall! Repeaterly’s new Dynamic Tags let you add dynamic content to any Elementor widget **—free**. Pull data from:
+
+[youtube https://www.youtube.com/watch?v=WPwdwvXJ2Vo]
 
 - ACF fields and sub-fields (including Repeater and Relationship fields).
 
@@ -172,6 +174,12 @@ With Repeaterly Pro, you can:
 Don’t let Elementor’s limitations hold you back. With **Repeaterly**, you can build powerful, **dynamic websites** effortlessly!
 
 👉 [Get Repeaterly Pro](https://repeaterly.com/)
+
+## </> Source Code
+
+Here's the source code link of Repeaterly:
+
+[https://github.com/Techimium/repeaterly](https://github.com/Techimium/repeaterly)
 
 ---
 
