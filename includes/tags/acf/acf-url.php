@@ -41,7 +41,7 @@ class ACF_URL extends Data_Tag {
 			$value = $this->get_settings( 'fallback' );
 		}
 
-		return wp_kses_post( $value );
+		return esc_url( $value );
 	}
 
 	protected function register_controls() {

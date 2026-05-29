@@ -117,6 +117,9 @@ class Image extends Widget_Image
         if(is_array($image)){
             $image = $image['url'];
         }
+        if (!empty($image)) {
+            $image = esc_url_raw($image);
+        }
 
         $settings['image'] = [
             'id' => null,

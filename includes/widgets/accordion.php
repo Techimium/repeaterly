@@ -104,10 +104,12 @@ class Accordion extends Widget_Accordion {
 		}
 		
 		if(!empty($list)) {
+			$title_key   = $this->get_settings('title_sub_field');
+			$content_key = $this->get_settings('content_sub_field');
 			foreach($list as $item) {
 				$settings['tabs'][] = [
-					'tab_title' => $item[$this->get_settings('title_sub_field')],
-					'tab_content' => $item[$this->get_settings('content_sub_field')],
+					'tab_title'   => isset($item[$title_key]) ? $item[$title_key] : '',
+					'tab_content' => isset($item[$content_key]) ? $item[$content_key] : '',
 				];
 			}
 		}

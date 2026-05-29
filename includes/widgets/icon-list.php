@@ -89,9 +89,10 @@ class Icon_List extends Widget_Icon_List {
 		$icon = $this->get_settings('selected_icon');
 		
 		if(!empty($list)) {
+			$sub_key = $this->get_settings('sub_field');
 			foreach($list as $item) {
 				$settings['icon_list'][] = [
-					'text' => $item[$this->get_settings('sub_field')],
+					'text'          => isset($item[$sub_key]) ? $item[$sub_key] : '',
 					'selected_icon' => $icon,
 				];
 			}

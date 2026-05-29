@@ -1,22 +1,22 @@
-=== Repeaterly ===
+=== Repeaterly - ACF Repeater, Flexible Content & Dynamic Tags for Elementor ===
 Contributors: techimium, mdashraful
-Tags: elementor, dynamic tags, acf repeater, loop grid, repeater fields
+Tags: acf repeater, elementor, dynamic tags, acf flexible content, custom fields
 Requires at least: 5.9
-Tested up to: 6.9
-Stable tag: 2.0.4
+Tested up to: 7.0
+Stable tag: 2.0.5
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Unlock ACF Repeater Fields, Relationship Fields, Dynamic Tags & ACF Repeater Loop Builder for Elementor
+Use ACF Repeater, Relationship & Flexible Content fields in Elementor — free Dynamic Tags included. No Elementor Pro needed.
 
 == Description ==
 
-Are you struggling to use **ACF repeater fields** or **Relationship fields** in Elementor? Tired of slow sites from duplicated sections? You’re not alone! Elementor doesn’t natively support repeater & relationship fields, and even Elementor Pro doesn’t fully unlock their potential.
+Are you struggling to use **ACF repeater fields**, **Relationship fields** or **Flexible content fields** in Elementor? Tired of slow sites from duplicated sections? You’re not alone!
 
-That’s why we built **Repeaterly** – a powerful plugin that lets you seamlessly integrate **ACF repeater fields, nested repeater fields, relationship fields, and dynamic tags** into Elementor, without any coding.
+**Here's the frustrating truth:** Elementor doesn't natively support ACF Repeater, Relationship or Flexible content fields. Not even Elementor Pro fully solves this. So most people end up with bloated pages, slow load times, and a site that's a nightmare to maintain.
 
-With **version 2.0**, Repeaterly takes it up a notch with **Dynamic Tags** and a new **ACF Relationship Field Loop Builder**, making it a game-changer for web designers and developers.
+**That's why we built Repeaterly.** It connects ACF and Elementor the way they always should have worked — so you can use ACF Repeater fields, Relationship fields, Flexible Content, and Dynamic Tags directly inside Elementor, without writing a single line of code. **No Elementor Pro needed.**
 
 [youtube https://www.youtube.com/watch?v=QU9MhjB3cWs]
 
@@ -24,264 +24,223 @@ With **version 2.0**, Repeaterly takes it up a notch with **Dynamic Tags** and a
 
 **Repeaterly** is the ultimate bridge between **Advanced Custom Fields (ACF)** and **Elementor**.
 
-## 🔥 Why Repeaterly Stands Out
-
-🚀 **No Elementor Pro Needed** – Unlock full dynamic content capabilities, including advanced dynamic tags, without needing Elementor Pro.
-
-🖼️ **Dynamic Tags** – Use any Elementor widget with ACF fields, subfields, and post data — **no Pro needed**.
-
-🌿 **ACF Repeater Fields** – Easily create **repeatable, dynamic content sections**.
-
-🔄 **Nested Repeater Support (Pro)** – Tackle nested ACF Repeaters with drag-and-drop ease for complex layouts.
-
-🛠️ **Repeater Loop Builder (Pro)** – Build custom loop grids & carousels with ACF data.
-
-🤝 **Relationship Field Loop Builder (Pro)** – Showcase ACF Relationship data in custom grids or carousels.
-
-🎨 **Custom Colors Made Easy** – Set dynamic text and background colors with the ACF color picker.
-
-⚡ **Optimized for Speed** – Say goodbye to duplicate sections and **slow page loading**.
-
-🌟 **Beginner-Friendly** – Drag, drop, done—no coding skills needed.
+👉 [Get Repeaterly Pro](https://repeaterly.com/) · 📖 [Documentation](https://repeaterly.com/documentation)
 
 ---
 
-## ✨ What’s New in Version 2?
+## What You Get for Free
 
-### Dynamic Tags: Power Up Any Widget **(FREE)**
+### Dynamic Tags — Use ACF Fields Inside Any Elementor Widget
 
-Say goodbye to Elementor Pro’s paywall! Repeaterly’s new Dynamic Tags let you add dynamic content to any Elementor widget **—free**. Pull data from:
+Normally, connecting your ACF field data to an Elementor widget (like a heading, button, or image) requires Elementor Pro. **Repeaterly gives you this for free.**
 
-- ACF fields and sub-fields (including Repeater and Relationship fields).
+Once installed, every Elementor widget gets a dynamic tag option. Click it, pick your ACF field, and the widget shows that field's value automatically — no static text, no manual updates.
 
-- Post title, content, excerpt, permalink, featured image and many more.
+Works with:
+
+- Any ACF field or subfield, including fields inside Repeater and Relationship fields
+- Post title, content, excerpt, URL, featured image, and more
+
+No other free plugin supports ACF subfields in dynamic tags. That's what makes this special.
 
 [youtube https://www.youtube.com/watch?v=WPwdwvXJ2Vo]
 
-Unlike others, our ACF tags support subfields, giving you unmatched flexibility. No other free plugin does this without Pro **—game-changer**!
+### Dynamic Icon List
 
-### ACF Relationship Field Loop Builder (Pro)
+Have a list of features, steps, or perks stored as an ACF Repeater? Turn it into a styled icon list in Elementor automatically. Add a new row in ACF — it appears on the page instantly. No Elementor edits needed.
 
-Showcase ACF Relationship field data in style! Build custom grids or carousels with the new Loop Builder widgets. Craft any layout from scratch using Elementor templates—perfect for related posts, products, or portfolios.
+### Dynamic Accordion
 
-### Why It Matters
+Store FAQ items or expandable content in ACF. Repeaterly turns them into a working accordion in Elementor automatically. Add more items in ACF and the accordion grows with them.
 
-With Dynamic Tags, both Repeater and Relationship Loop Builders are now unstoppable. Use any Elementor widget in your layouts, pulling dynamic ACF data with zero limits. Your designs, your rules.
+### Dynamic Gallery
 
-## 🔄 Why Use ACF Repeater Fields with Repeaterly?
+Have an ACF Gallery field full of images? The Dynamic Gallery widget pulls all those images into Elementor and displays them however you style it.
 
-Using Elementor’s built-in tools, you often **duplicate sections** and manually change content, which leads to **slow pages and bloated databases**.
+---
 
-With Repeaterly, you can:
+## What You Get with Pro
 
-✅ **Create one layout & dynamically populate content** using ACF repeater fields.
+### ACF Repeater Loop Grid & Carousel
 
-✅ **Reduce database load** by reusing layouts instead of duplicating sections.
+This is for when you want full control over how repeated content looks.
 
-✅ **Save time** by making updates in ACF instead of editing multiple Elementor sections.
+Say you have a Repeater field with 12 team members. Design one "team card" template in Elementor. Repeaterly loops through all 12 rows and applies your template to each one automatically. Change the template once — all 12 cards update. Works as a grid or a carousel slider just like Elementor Pro's native Loop Builder but for **ACF Repeater Fields**.
 
-👉 [Get Repeaterly Pro](https://repeaterly.com/)
+### ACF Relationship Loop Grid & Carousel
 
-## 🚀 Features: What Can You Do with Repeaterly?
+ACF Relationship fields let you link posts together — like "related products" or "similar articles." Repeaterly can display those linked posts in a fully custom Elementor grid or carousel using any template you design.
 
-Repeaterly comes packed with powerful widgets to make your Elementor designs dynamic and flexible:
+### Nested Repeater Support
 
-- **Dynamic Tags** Use ACF fields, subfields, and post data inside any Elementor widget — a feature normally locked behind Elementor Pro, now fully available for free with Repeaterly.
+A nested Repeater is a Repeater inside another Repeater. Picture a list of pricing plans where each plan has its own list of included features. This is notoriously difficult to display in Elementor. Repeaterly Pro handles it cleanly — drag, drop, done. No code required.
 
-- **Dynamic Icon List** Build dynamic lists using ACF repeater fields and sub-fields.
+### ACF Flexible Content Loop Builder
 
-- **Dynamic Accordion** Build dynamic accordion using ACF repeater fields and sub-fields.
+ACF Flexible Content fields let you create different types of content blocks in ACF — kind of like a mini page builder inside your field group. Repeaterly Pro renders each of those blocks dynamically in Elementor, using your own custom templates for each layout type. You can also reorder the sections directly from the Flexible Content widget's Elementor control with simple drag and drop — arrange the layouts in whatever order you like, right from the widget settings.
 
-- **Dynamic Image Carousel** (Pro) A custom Image Carousel widget that supports dynamic image sources from custom fields.
+### ACF Clone Field Support
 
-- **Dynamic Gallery** Extend Elementor’s gallery widget with dynamic image sources from ACF fields.
+If you reuse a Repeater field via an ACF Clone field set to "seamless" display mode, Repeaterly Pro detects it automatically inside your Repeater and Flexible Content templates. No extra setup needed — it just works. (This applies specifically to seamlessly cloned Repeater fields)
 
-- **ACF Repeater Loop Grid** (Pro) Create custom loop grids with custom layout using ACF repeater fields and Elementor templates. Perfect for advanced layouts where you need to duplicate sections/containers.
+### Dynamic Image Carousel
 
-- **ACF Repeater Loop Carousel** (Pro) Design fully custom carousels powered by ACF Repeater fields, using Elementor templates for complete styling flexibility.
+A dedicated carousel widget that pulls images from ACF fields. Connect it to your ACF image field and it populates automatically with full styling control.
 
-- **ACF Relationship Loop Grid** (Pro) Display related posts in a customizable grid layout with full support for dynamic fields.
+### Load Content from Any Post
 
-- **ACF Relationship Loop Carousel** (Pro) Showcase related content in an interactive carousel slider, complete with image, title, and meta fields.
+Want to show ACF data from a different post on the current page? With Repeaterly Pro you can pull Repeater or Relationship data from any post using its ID — great for shared sections that reference global content.
 
-- **Nested ACF Repetaer Field Support** (Pro) Effortlessly render nested ACF Repeater fields in Elementor—build complex, dynamic layouts like pricing tables or multi-level lists with simple drag-and-drop control.
+### Pagination & Load More
 
-## 🔄 ACF Repeater & Relationship Loop Builders
+If your Repeater or Relationship field has dozens of rows, you don't have to show them all at once. Add pagination or a "Load More" button to your loop and Repeaterly handles the rest.
 
-The Pro version of Repeaterly unlocks some of the most powerful widgets for the **ACF Repeater Loop Builder** and **ACF Relationship Field Loop Builder**. These let you build fully **custom grids or carousels** using dynamic ACF data – all inside Elementor, even **without Elementor Pro**.
+---
 
-With Repeaterly Pro, you can:
+## Why Copying Sections Is Hurting You
 
-- 🧱 **Custom Loop Layouts** – Create loop grids or carousels with your own Elementor templates, just like **Elementor Pro’s Loop Builder**, but without needing Pro.
+When you manually duplicate Elementor sections to repeat content, here is what is happening in the background:
 
-- 🔗 **Relationship Field Support** – Dynamically display related posts using **ACF Relationship fields** in a fully custom layout.
+- Every copy is saved separately in your database — 10 items means 10 full copies of your layout stored individually
+- If you update the design, you have to edit every single copy by hand
+- All that extra saved data adds weight to every page load and slows your site down
 
-- 🔄 **Repeater Field Support** – Loop through ACF repeater fields to show dynamic content with flexible design.
+With Repeaterly, there is one template and one data source. The template lives in Elementor. The content lives in ACF. They connect automatically. Update the layout once. Update content in ACF. Everything stays in sync without touching Elementor again.
 
-- 🔍 **Fetch Data from Any Post** – Load ACF Repeater or Relationship field data from any post ID, not just the current one.
+---
 
-- 📄 **Built-in Pagination Support** – Add pagination or load more buttons to your repeater/relationship loops to manage large content sets seamlessly.
+## Who Is Repeaterly For?
 
-- 🛠️ **Use Any Widget** – Use any Elementor widget inside your loop templates and bind them to ACF fields or subfields.
+**Designers** — Build dynamic, professional layouts in Elementor without touching code or doing repetitive work.
 
-- 🔁 **Nested Repeater Ready** – Supports nested ACF repeater fields for building deeply structured layouts.
+**Developers** — Stop wrestling with ACF and Elementor separately. Repeaterly integrates them so you can ship faster.
 
-👉 [Get Repeaterly Pro](https://repeaterly.com/)
+**Agencies and freelancers** — Build sites where clients update content in ACF without ever needing to open Elementor.
 
-## 🎯 Who Needs Repeaterly?
+**Anyone using both ACF and Elementor** — If you have both plugins installed and you are not using Repeaterly, you are doing things the hard way.
 
-✅ **Web Designers** – Create dynamic, pro-level layouts without extra plugins.
+---
 
-✅ **Developers** – Integrate ACF fields effortlessly into Elementor projects.
+## Getting Started
 
-✅ **Agencies & Freelancers** – Build advanced, **database-driven** sites quickly.
-
-✅ **Performance-Conscious Users** – **Reduce duplicate sections**, keep your database lean, and improve speed.
-
-## 🛠️ How It Works
-
-1. **Install Repeaterly** (Free or Pro).
-
-2. **Set up ACF** Repeater or Relationship fields.
-
-3. In **Elementor**, use **Dynamic Tags** or Repeaterly’s **widgets** to pull data.
-
-4. Build custom loop layout using the loop builder widgets (Pro).
-
-5. Done — dynamic, fast, beautiful sites!
-
-
-## 🔧 Installation Guide
-
-### 🔹 Free Version:
-
-1. Search for `Repeaterly` from your admin panel or Download & install **Repeaterly** from WordPress.org.
-
-2. Activate the plugin in your WordPress dashboard.
-
-3. Start using dynamic content inside Elementor.
-
-### 🔥 Pro Version:
-
-1. Purchase **[Repeaterly Pro](https://repeaterly.com/)** from our official website.
-
-2. Install & activate **Repeaterly Pro plugin** alongside the free version.
-
-3. Unlock **Repeater & Relationship Loop Builder** and other advanced features.
-
-## 🌟 Ready to Supercharge Elementor with ACF Repeater & Relationship Fields?
-
-Don’t let Elementor’s limitations hold you back. With **Repeaterly**, you can build powerful, **dynamic websites** effortlessly!
+1. Install and activate Repeaterly (free)
+2. Make sure ACF is installed and you have at least one field set up
+3. Open any page in Elementor — Dynamic Tags are ready to use straight away
+4. To build a loop layout, add a Loop Builder widget (Pro) and connect it to your ACF Repeater or Relationship field
+5. That is it. No code. Content updates automatically from ACF.
 
 👉 [Get Repeaterly Pro](https://repeaterly.com/)
 
-## Source Code
+📖 [Read the Documentation](https://repeaterly.com/documentation)
 
-Here's the source code link of Repeaterly:
-
-[https://github.com/Techimium/repeaterly](https://github.com/Techimium/repeaterly)
+**Source Code:** [github.com/Techimium/repeaterly](https://github.com/Techimium/repeaterly)
 
 ---
 
 == Installation ==
 
-1. Visit `Plugins > Add New`
-2. Search for `Repeaterly`
-3. Install Repeaterly once it appears.
-4. Activate Repeaterly from your Plugins page.
-5. And you are done!.
+= From your WordPress dashboard =
 
-= Manually =
+1. Go to Plugins > Add New
+2. Search for Repeaterly
+3. Click Install, then Activate
 
-1. Upload the `repeaterly` folder to the `/wp-content/plugins/` directory
-2. Activate the Repeaterly plugin through the 'Plugins' menu in WordPress
-3. And you are done!.
+= Manual installation =
+
+1. Download the plugin zip file
+2. Go to Plugins > Add New > Upload Plugin
+3. Upload the zip, then click Install and Activate
+
+= Pro version =
+
+1. Purchase Repeaterly Pro at [repeaterly.com](https://repeaterly.com/)
+2. Download the Pro plugin zip from your account
+3. Install it the same way as the free version — it works alongside it
+4. Pro features activate automatically once both plugins are active
 
 == Frequently Asked Questions ==
 
-= What is Repeaterly? =  
-Repeaterly is a powerful WordPress plugin that unlocks Elementor's Dynamic Tags, ACF Repeater Fields, ACF Relationship Fields, Gallery Fields, and Dynamic Content in Elementor, allowing you to create custom layouts and dynamic sections without writing code.
+= Do I need Elementor Pro to use Repeaterly? =
+No. Repeaterly works with the free version of Elementor. Dynamic Tags, all loop builder widgets, and every other feature work without an Elementor Pro subscription.
 
-= Do I need Elementor Pro to use Repeaterly? =  
-No, Repeaterly works with the free version of Elementor. You can create dynamic content and custom loops without upgrading to Elementor Pro.
+= What is an ACF Repeater field? =
+A Repeater field is a field type in ACF (Advanced Custom Fields) that stores multiple rows of data — like a list of team members, services, or FAQs. Each row can have its own sub-fields (name, image, description, etc.). Repeaterly lets you display all of that in Elementor automatically.
 
-= Isn’t Dynamic Tags a feature of Elementor Pro? =  
-While Dynamic Tags are officially an Elementor Pro feature, Repeaterly makes them freely available — no Elementor Pro needed!
+= What are Dynamic Tags and why do I need them? =
+Dynamic Tags let Elementor widgets show content that changes based on the page — instead of static text you type in by hand. For example, a Heading widget can show the post title automatically instead of you typing it out. This is normally an Elementor Pro feature. Repeaterly includes it for free, and also supports ACF fields and subfields inside Repeater and Relationship fields.
 
-= Does Repeaterly support nested ACF Repeater fields? =  
-Yes, absolutely! Nested ACF Repeaters can be a headache in Elementor, but Repeaterly makes it simple. Drag, drop, and build complex layouts—like pricing tables with sub-features—without coding. It’s all about flexibility and speed, no mess required!
+= Can I use Repeaterly without knowing how to code? =
+Yes, completely. Everything is drag and drop inside Elementor. Set up your ACF fields, then use Repeaterly's widgets and dynamic tags to display them. No code at any point.
 
-= Does Repeaterly support ACF Relationship fields? =  
-Yes! Repeaterly Pro includes powerful widgets that let you display ACF Relationship field data in fully customizable **grids** or **carousels** using Elementor — even without Elementor Pro.
+= Does Repeaterly support nested ACF Repeater fields? =
+Yes, with Repeaterly Pro. A nested Repeater is a Repeater inside another Repeater — for example, a list of pricing plans where each plan has its own list of features. This is hard to handle in Elementor alone. Repeaterly Pro makes it straightforward with no coding.
 
-= Can I fetch ACF Repeater or Relationship field data from a different post? =
-Yes! Repeaterly Pro lets you load ACF Repeater or Relationship field data from any post by its ID—perfect for building reusable sections or referencing global content.
+= Does Repeaterly support ACF Relationship fields? =
+Yes. Relationship fields let you link posts together in ACF — like connecting products to categories or posts to authors. Repeaterly Pro displays those linked posts in a fully custom Elementor grid or carousel.
 
-= Does Repeaterly support pagination for Repeater and Relationship fields? =
-Absolutely. With Repeaterly Pro, you can enable pagination or load-more functionality on your ACF Repeater and Relationship loops—great for handling large sets of dynamic content smoothly.
+= Does Repeaterly support ACF Flexible Content fields? =
+Yes, with Repeaterly Pro. Flexible Content fields let you create different types of content blocks inside ACF. Repeaterly Pro renders each block dynamically in Elementor using your own custom templates — one template per layout type. You can also drag and drop to reorder the sections directly from the Flexible Content widget's controls in Elementor, arranging the layouts in any order you like.
 
-= What features are included in Repeaterly? =  
-Repeaterly lets you use ACF fields with dynamic tags, build custom grids and carousels for both Repeater and Relationship fields—all without needing Elementor Pro. It supports nested fields and lets you use any Elementor widget inside your dynamic loops for flexible, powerful designs.
+= Does Repeaterly support ACF Clone fields? =
+Yes — specifically for Repeater fields reused through a seamless ACF Clone field. Repeaterly Pro detects a seamlessly cloned Repeater automatically inside your Repeater and Flexible Content templates, with no extra configuration. Other clone types, such as cloned Groups, are not covered.
 
-= Can I use any Elementor widgets? =  
-Yes! Repeaterly lets you use **any Elementor widget** to display dynamic content from ACF fields, so you can create fully custom layouts using your favorite widgets—all without Elementor Pro.
+= Can I display content from a different post? =
+Yes. With Repeaterly Pro you can pull ACF Repeater or Relationship data from any post by its ID — not just the current page. Useful for shared sections that pull from one central source across multiple pages.
 
-= How does the Repeater Loop Builder work? =  
-The Repeater Loop Builder (Pro) allows you to create custom layouts for ACF Repeater Fields using Elementor templates. You can design unique grids, lists, and other sections without limitations.
+= Can I add pagination to my loop? =
+Yes. Repeaterly Pro supports built-in pagination and a "Load More" button for both Repeater and Relationship loops. Useful when you have many rows and do not want to load them all at once.
 
-= Will Repeaterly slow down my website? =  
-No, Repeaterly is optimized for performance. It helps reduce database bloat by reusing layouts instead of duplicating sections, making your site lean and fast.
+= Can I use third-party Elementor widgets inside my loop templates? =
+Yes. Repeaterly's Dynamic Tags work with any Elementor widget, including widgets from third-party addons. Drop any widget into your loop template and connect it to an ACF field.
 
-= Can I use Repeaterly with other custom field plugins? =  
-Currently, Repeaterly is built specifically for ACF (Advanced Custom Fields), but support for other custom field plugins may be added in future updates.
+= Will this slow down my website? =
+No — it usually makes your site faster. Manually duplicated sections each get saved separately in your database and add extra markup to every page load. Repeaterly uses one template and one data source, which is much lighter.
 
-= Is Repeaterly beginner-friendly? =  
-Yes! Repeaterly is designed to be easy to use, with no coding required. Simply install the plugin, configure your ACF fields, and use Elementor to display dynamic content.
+= Does Repeaterly work with other custom field plugins? =
+Not currently. Repeaterly is built specifically for ACF. Support for other custom field plugins may come in future updates.
 
-= How do I get Repeaterly Pro? =  
-You can purchase Repeaterly Pro from our official website. The Pro version unlocks advanced features like the Dynamic Repeater Loop Grid.
-
-= Where can I get support? =  
-If you need help, you can check our documentation or contact our support team via our website.
+= Where can I get help? =
+Browse the [documentation](https://repeaterly.com/documentation) for setup guides and tutorials. For support, visit [repeaterly.com](https://repeaterly.com/). You can also use the WordPress.org support forum on this page.
 
 == Screenshots ==
 
-1. Dynamic Tags
-2. Additional Widgets
-3. ACF Repeater Loop Builder (Pro)
-4. ACF Repeater Loop Builder - Carousel (Pro)
+1. Dynamic Tags — connect any Elementor widget to ACF fields for free
+2. Additional free widgets — Dynamic Icon List, Accordion, and Gallery
+3. ACF Repeater Loop Grid (Pro)
+4. ACF Repeater Loop Carousel (Pro)
 5. Nested Repeater Support (Pro)
-6. ACF Relationship Loop Builder (Pro)
-7. ACF Repeater List
-8. Dynamic Accordion
-9. Live ACF Repeater Loop Preview
-10. ACF Gallery
-11. ACF Image Carousel (Pro) 
+6. ACF Relationship Loop Grid (Pro)
+7. ACF Flexible Content (Pro)
+8. Dynamic Icon List powered by ACF Repeater
+9. Dynamic Accordion powered by ACF Repeater
+10. Live ACF Repeater Loop preview in Elementor editor
+11. ACF Gallery widget
+12. ACF Dynamic Image Carousel (Pro)
 
 == Changelog ==
 
+= 2.0.5 =
+Improved: Dynamic content rendering logic
+
 = 2.0.4 =
-Fix: CSS enqueueing in Page_Manager to use dynamic plugin version
+Fix: CSS enqueueing in Page_Manager now uses dynamic plugin version
 
 = 2.0.3 =
-Added: Dynamic Accordion
+Added: Dynamic Accordion widget
 
 = 2.0.2 =
 Fix: Post content dynamic tag
 
 = 2.0.1 =
-Improved: ACF integraion
+Improved: ACF integration
 
 = 2.0.0 =
-Added: Dynamic Tags for all Elementor widgets (ACF fields, subfields, post data) — no Elementor Pro needed.
-Added: ACF Relationship Field Loop Builder (Grid & Carousel, Pro).
-Improved: Loop Builders now support any Elementor widget via Dynamic Tags.
+Added: Dynamic Tags for all Elementor widgets — ACF fields, subfields, post data — no Elementor Pro needed
+Added: ACF Relationship Field Loop Builder — Grid and Carousel (Pro)
+Improved: Loop Builders now support any Elementor widget via Dynamic Tags
 
 = 1.0.1 =
-Added: Dynamic tags support
-
-= 1.0.1 =
-Improved: Dynamic list and heading widget.
+Improved: Dynamic list and heading widget
 
 = 1.0.0 =
 Initial release
