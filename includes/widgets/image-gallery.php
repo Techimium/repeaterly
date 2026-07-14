@@ -6,6 +6,7 @@ use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
 use Elementor\Widget_Image_Gallery;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
@@ -13,6 +14,7 @@ if (! defined('ABSPATH')) {
 
 class Image_Gallery extends Widget_Image_Gallery
 {
+	use Has_ACF_Options_Page_Source;
 
 	public function get_name()
 	{
@@ -65,6 +67,16 @@ class Image_Gallery extends Widget_Image_Gallery
 				'separator' => 'after',
 			]
 		);
+
+		$this->start_injection( [
+			'type' => 'section',
+			'at' => 'end',
+			'of' => 'section_gallery',
+		] );
+
+		$this->register_acf_options_page_controls();
+
+		$this->end_injection();
 	}
 
 	public function get_settings_for_display($setting_key = null)
@@ -73,7 +85,7 @@ class Image_Gallery extends Widget_Image_Gallery
 
 		if ($this->get_settings('wp_gallery')) {
 			if ($this->get_settings('wp_gallery')) {
-				$items = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('wp_gallery'));
+				$items = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('wp_gallery'), $this->resolve_acf_post_id());
 
 				if (empty($items)) {
 					$items = Dynamic_Content::get_value(Dynamic_Content::SUB, $this->get_settings('wp_gallery'));

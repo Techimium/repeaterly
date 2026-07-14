@@ -4,6 +4,28 @@ namespace Repeaterly\Includes;
 
 class Acf
 {
+    public static function get_options_pages()
+    {
+        if (! function_exists('acf_get_options_pages')) {
+            return ['option' => __('Default Options Page', 'repeaterly')];
+        }
+
+        $pages = acf_get_options_pages();
+
+        if (empty($pages)) {
+            return ['option' => __('Default Options Page', 'repeaterly')];
+        }
+
+        $options = [];
+
+        foreach ($pages as $page) {
+            $post_id = $page['post_id'] ?? 'option';
+            $options[$post_id] = $page['page_title'] ?? ($page['menu_title'] ?? $post_id);
+        }
+
+        return $options;
+    }
+
     public static function get_field_value($key, $post_id = false)
     {
         if (function_exists('get_field')) {

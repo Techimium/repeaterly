@@ -6,9 +6,11 @@ use Elementor\Plugin;
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Utils;
 use Elementor\Widget_Heading;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 class Heading extends Widget_Heading
 {
+	use Has_ACF_Options_Page_Source;
 
     public function get_name()
     {
@@ -90,6 +92,8 @@ class Heading extends Widget_Heading
 			]
 		);
 
+		$this->register_acf_options_page_controls(['field_type' => Dynamic_Content::CUSTOM]);
+
         $this->end_injection();
     }
 
@@ -103,7 +107,8 @@ class Heading extends Widget_Heading
 		$settings = parent::get_settings_for_display();
 
 		if ($this->get_settings('field_type')) {
-			$settings['title'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('title'));
+			$post_id = $this->get_settings('field_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id() : false;
+			$settings['title'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('title'), $post_id);
 		}
 
 		if ( Plugin::$instance->editor->is_edit_mode() && $settings['title'] == '' ) {

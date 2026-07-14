@@ -7,9 +7,11 @@ use Elementor\Widget_Image;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Plugin;
 use Elementor\Utils;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 class Image extends Widget_Image
 {
+    use Has_ACF_Options_Page_Source;
     public function get_name()
     {
         return 'repeaterly-image';
@@ -90,16 +92,22 @@ class Image extends Widget_Image
 				'options' => Dynamic_Content::get_image_sources(),
             ]
         );
-        $this->add_control(
+        $this->update_control(
             'link_to',
             [
                 'label' => esc_html__('Link Source', 'repeaterly'),
                 'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'file',
-                'options' => array_merge(Dynamic_Content::get_link_sources(), ['file'  => esc_html__('Lightbox', 'repeaterly')]),
+                'default' => 'none',
+                'options' => array_merge(
+                    ['none' => esc_html__('None', 'repeaterly')],
+                    Dynamic_Content::get_link_sources(),
+                    ['file' => esc_html__('Lightbox', 'repeaterly')]
+                ),
                 'separator' => 'after',
             ]
         );
+
+        $this->register_acf_options_page_controls();
 
         $this->end_injection();
     }
@@ -113,7 +121,8 @@ class Image extends Widget_Image
     {
         $settings = $this->get_settings_for_display();
 
-        $image = Dynamic_Content::get_value($settings['field_type'], $settings['image']);
+        $post_id = $settings['field_type'] === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id() : false;
+        $image = Dynamic_Content::get_value($settings['field_type'], $settings['image'], $post_id);
         if(is_array($image)){
             $image = $image['url'];
         }
@@ -132,7 +141,8 @@ class Image extends Widget_Image
 
         $has_caption = $this->has_caption($settings);
 
-        $link = Dynamic_Content::get_value($settings['link_to'], isset($settings['link']) ? $settings['link']['url'] : null);
+        $link_post_id = $settings['link_to'] === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id() : false;
+        $link = Dynamic_Content::get_value($settings['link_to'], isset($settings['link']) ? $settings['link']['url'] : null, $link_post_id);
         if(!is_array($link)){
             $link = ['url' => $link];
         }

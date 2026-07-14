@@ -7,6 +7,7 @@ use Elementor\Controls_Manager;
 use Elementor\Includes\Widgets\Traits\Button_Trait;
 use Elementor\Plugin;
 use Elementor\Widget_Button;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
@@ -16,6 +17,7 @@ class Button extends Widget_Button
 {
 
 	use Button_Trait;
+	use Has_ACF_Options_Page_Source;
 
 	public function get_name()
 	{
@@ -76,6 +78,8 @@ class Button extends Widget_Button
 			]
 		);
 
+		$this->register_acf_options_page_controls();
+
 		$this->register_button_content_controls();
 
 		$this->end_controls_section();
@@ -126,11 +130,13 @@ class Button extends Widget_Button
 		$settings = parent::get_settings_for_display();
 
 		if ($this->get_settings('field_type')) {
-			$settings['text'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('text'));
+			$post_id = $this->get_settings('field_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id() : false;
+			$settings['text'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('text'), $post_id);
 		}
 
 		if ($this->get_settings('link_type')) {
-			$link = Dynamic_Content::get_value($this->get_settings('link_type'), $this->get_settings('link')['url']);
+			$link_post_id = $this->get_settings('link_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id() : false;
+			$link = Dynamic_Content::get_value($this->get_settings('link_type'), $this->get_settings('link')['url'], $link_post_id);
 
 			if (is_array($link)) {
 				$settings['link'] = $link;

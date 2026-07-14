@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf repeater, elementor, dynamic tags, acf flexible content, custom fields
 Requires at least: 5.9
 Tested up to: 7.0
-Stable tag: 2.0.5
+Stable tag: 2.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -39,11 +39,16 @@ Once installed, every Elementor widget gets a dynamic tag option. Click it, pick
 Works with:
 
 - Any ACF field or subfield, including fields inside Repeater and Relationship fields
+- ACF Options Page fields — pull site-wide (global) content into any widget
 - Post title, content, excerpt, URL, featured image, and more
 
 No other free plugin supports ACF subfields in dynamic tags. That's what makes this special.
 
 [youtube https://www.youtube.com/watch?v=WPwdwvXJ2Vo]
+
+### ACF Options Page Support — Global Content, Everywhere
+
+Store your site-wide content — phone number, address, social links, opening hours, footer text — once on an ACF Options Page, and display it anywhere with Repeaterly. Every dynamic tag and dynamic widget has a Data Source option: switch it to your Options Page and the field value appears. Update it in ACF and it changes across your entire site instantly. This is normally an Elementor Pro feature — Repeaterly gives you it for free.
 
 ### Dynamic Icon List
 
@@ -87,9 +92,11 @@ If you reuse a Repeater field via an ACF Clone field set to "seamless" display m
 
 A dedicated carousel widget that pulls images from ACF fields. Connect it to your ACF image field and it populates automatically with full styling control.
 
-### Load Content from Any Post
+### Load Content from Any Post or ACF Options Page
 
 Want to show ACF data from a different post on the current page? With Repeaterly Pro you can pull Repeater or Relationship data from any post using its ID — great for shared sections that reference global content.
+
+It goes further: every Pro loop widget — Repeater Loop Grid and Carousel, Relationship Loop Grid and Carousel, Flexible Content, and the Dynamic Image Carousel — can also use an **ACF Options Page** as its data source. Keep a global Repeater (say, testimonials or partner logos) on an Options Page, loop it on any page with your own template, and manage the rows in one place. The Elementor editor preview supports Options Page data too, so you see real rows while designing your loop template.
 
 ### Pagination & Load More
 
@@ -187,6 +194,9 @@ Yes — specifically for Repeater fields reused through a seamless ACF Clone fie
 = Can I display content from a different post? =
 Yes. With Repeaterly Pro you can pull ACF Repeater or Relationship data from any post by its ID — not just the current page. Useful for shared sections that pull from one central source across multiple pages.
 
+= Does Repeaterly support ACF Options Pages? =
+Yes. An ACF Options Page stores global, site-wide content — like contact details, social links, or footer text — that isn't tied to any single post. In the free plugin, every dynamic tag and dynamic widget has a Data Source setting where you can pick any of your Options Pages. With Repeaterly Pro, the loop widgets (Repeater, Relationship, Flexible Content, and Image Carousel) can loop Options Page data too, with full editor preview support.
+
 = Can I add pagination to my loop? =
 Yes. Repeaterly Pro supports built-in pagination and a "Load More" button for both Repeater and Relationship loops. Useful when you have many rows and do not want to load them all at once.
 
@@ -218,6 +228,9 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 12. ACF Dynamic Image Carousel (Pro)
 
 == Changelog ==
+
+= 2.1.0 =
+Added: ACF Options Page as a data source for all ACF dynamic tags and dynamic widgets (button, heading, icon list, image, image gallery)
 
 = 2.0.5 =
 Improved: Dynamic content rendering logic

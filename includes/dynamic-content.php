@@ -58,23 +58,20 @@ class Dynamic_Content
         return apply_filters(Hook::DYNAMIC_IMAGE_OPTIONS, $options);
     }
 
-    public static function get_value($source_name, $source_value = null)
+    public static function get_value($source_name, $source_value = null, $post_id = false)
     {
         switch ($source_name) {
             case self::SUB:
                 return $source_value ? get_sub_field($source_value) : '';
                 break;
             case self::CUSTOM:
-                return $source_value ? get_field($source_value) : '';
+                return $source_value ? get_field($source_value, $post_id) : '';
                 break;
             case self::POST_TITLE:
                 return get_the_title();
                 break;
             case self::POST_CONTENT:
                 return get_the_content();
-                break;
-            case self::POST_EXCERPT:
-                return get_the_excerpt();
                 break;
             case self::POST_EXCERPT:
                 return get_the_excerpt();

@@ -5,8 +5,10 @@ use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Controls_Manager;
 use Elementor\Icons_Manager;
 use Elementor\Widget_Icon_List;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 class Icon_List extends Widget_Icon_List {
+	use Has_ACF_Options_Page_Source;
 
 	public function get_name() {
 		return 'repeaterly-icon-list';
@@ -55,10 +57,11 @@ class Icon_List extends Widget_Icon_List {
             'label' => __('Sub Field Name', 'repeaterly'),
 			'description' => Dynamic_Content::SUBFIELD_DESCRIPTION,
 			'label_block' => true,
-			'separator' => 'after',
             'type' => \Elementor\Controls_Manager::TEXT,
             'placeholder' => __('Enter the sub field name', 'repeaterly'),
         ]);
+
+		$this->register_acf_options_page_controls();
 
 		$this->add_control(
 			'selected_icon',
@@ -83,7 +86,7 @@ class Icon_List extends Widget_Icon_List {
 
 		$list = Dynamic_Content::get_value(Dynamic_Content::SUB, $this->get_settings('repeater_field'));
 		if(empty($list)){
-			$list = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('repeater_field'));
+			$list = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('repeater_field'), $this->resolve_acf_post_id());
 		}
 
 		$icon = $this->get_settings('selected_icon');

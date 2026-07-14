@@ -5,12 +5,14 @@ use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Data_Tag;
 use Elementor\Modules\DynamicTags\Module;
 use Repeaterly\Includes\Acf;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
 class ACF_URL extends Data_Tag {
+	use Has_ACF_Options_Page_Source;
 
 	public function get_name() {
 		return 'repeaterly-acf-url';
@@ -35,7 +37,7 @@ class ACF_URL extends Data_Tag {
 	}
 
 	public function get_value( array $options = [] ) {
-		$value = Acf::get_field_value($this->get_settings('key'));
+		$value = Acf::get_field_value($this->get_settings('key'), $this->resolve_acf_post_id());
 
 		if ( empty( $value ) && $this->get_settings( 'fallback' ) ) {
 			$value = $this->get_settings( 'fallback' );
@@ -63,6 +65,8 @@ class ACF_URL extends Data_Tag {
 				'label' => esc_html__( 'Fallback', 'repeaterly' ),
 			]
 		);
+
+		$this->register_acf_options_page_controls();
 	}
 
 	public function get_supported_fields() {

@@ -5,12 +5,14 @@ use Elementor\Controls_Manager;
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module;
 use Repeaterly\Includes\Acf;
+use Repeaterly\Includes\Traits\Has_ACF_Options_Page_Source;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
 class ACF_Date_Time extends Tag {
+	use Has_ACF_Options_Page_Source;
 
 	public function get_name() {
 		return 'repeaterly-acf-date-time';
@@ -34,7 +36,7 @@ class ACF_Date_Time extends Tag {
 	}
 
 	public function render() {
-		$value = Acf::get_field_value($this->get_settings( 'key' ));
+		$value = Acf::get_field_value($this->get_settings( 'key' ), $this->resolve_acf_post_id());
 
 		echo wp_kses_post( $value );
 	}
@@ -56,6 +58,8 @@ class ACF_Date_Time extends Tag {
 				],
 			]
 		);
+
+		$this->register_acf_options_page_controls();
 	}
 
 	public function get_supported_fields() {
