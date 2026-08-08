@@ -61,14 +61,18 @@ class Widget_Manager
 
     public function pro_widgets_promote($widgets_manager)
     {
+        if (class_exists('\Repeaterly_Pro')) {
+            return;
+        }
+
         $promotion_widgets = [
             [
-                'widget_name' => 'repeaterly-loop-grid',
+                'widget_name' => 'repeaterly-pro-loop-grid-promo',
                 'widget_title' => 'ACF Repeater Loop Grid (Pro)',
                 'widget_icon' => 'eicon-loop-builder',
             ],
             [
-                'widget_name' => 'repeaterly-image-carousel',
+                'widget_name' => 'repeaterly-pro-image-carousel-promo',
                 'widget_title' => 'ACF Image Carousel (Pro)',
                 'widget_icon' => 'eicon-slider-push',
             ],
