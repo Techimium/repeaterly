@@ -42,7 +42,7 @@ class ACF_Image extends Data_Tag {
 			'url' => '',
 		];
 
-		$value = Acf::get_field_value($this->get_settings('key'), $this->resolve_acf_post_id());
+		$value = Acf::get_field_value($this->get_settings('key'), $this->resolve_acf_post_id($this->get_settings('key')));
 
 		if ( empty( $value ) && $this->get_settings( 'fallback' ) ) {
 			$value = $this->get_settings( 'fallback' );

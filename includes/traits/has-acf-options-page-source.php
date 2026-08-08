@@ -39,10 +39,11 @@ trait Has_ACF_Options_Page_Source
         );
     }
 
-    protected function resolve_acf_post_id()
+    protected function resolve_acf_post_id($field_name = '')
     {
         if ('options_page' !== $this->get_settings('acf_data_source')) {
-            return false;
+            $field = Acf::resolve_field($field_name, false, false, false);
+            return $field['post_id'];
         }
 
         $options_page = $this->get_settings('acf_options_page');

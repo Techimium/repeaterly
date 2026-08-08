@@ -36,7 +36,7 @@ class ACF_Date_Time extends Tag {
 	}
 
 	public function render() {
-		$value = Acf::get_field_value($this->get_settings( 'key' ), $this->resolve_acf_post_id());
+		$value = Acf::get_field_value($this->get_settings( 'key' ), $this->resolve_acf_post_id($this->get_settings( 'key' )));
 
 		echo wp_kses_post( $value );
 	}

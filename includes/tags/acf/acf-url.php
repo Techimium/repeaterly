@@ -37,7 +37,7 @@ class ACF_URL extends Data_Tag {
 	}
 
 	public function get_value( array $options = [] ) {
-		$value = Acf::get_field_value($this->get_settings('key'), $this->resolve_acf_post_id());
+		$value = Acf::get_field_value($this->get_settings('key'), $this->resolve_acf_post_id($this->get_settings('key')));
 
 		if ( empty( $value ) && $this->get_settings( 'fallback' ) ) {
 			$value = $this->get_settings( 'fallback' );

@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf repeater, elementor, dynamic tags, acf flexible content, custom fields
 Requires at least: 5.9
 Tested up to: 7.0
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -228,6 +228,9 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 12. ACF Dynamic Image Carousel (Pro)
 
 == Changelog ==
+
+= 2.2.0 =
+Fixed: ACF fields now resolve the intended page/post during WordPress Preview Changes while preserving nested repeater rows, external posts, relationship templates, clone fields, and Options Pages.
 
 = 2.1.0 =
 Added: ACF Options Page as a data source for all ACF dynamic tags and dynamic widgets (button, heading, icon list, image, image gallery)
