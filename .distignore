@@ -12,3 +12,4 @@ phpunit.xml.dist
 .distignore
 node_modules
 wp-assets
+PLUGIN-CHECK.md
