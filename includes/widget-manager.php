@@ -68,12 +68,12 @@ class Widget_Manager
         $promotion_widgets = [
             [
                 'widget_name' => 'repeaterly-pro-loop-grid-promo',
-                'widget_title' => 'ACF Repeater Loop Grid (Pro)',
+                'widget_title' => __('ACF Repeater Loop Grid (Pro)', 'repeaterly'),
                 'widget_icon' => 'eicon-loop-builder',
             ],
             [
                 'widget_name' => 'repeaterly-pro-image-carousel-promo',
-                'widget_title' => 'ACF Image Carousel (Pro)',
+                'widget_title' => __('ACF Image Carousel (Pro)', 'repeaterly'),
                 'widget_icon' => 'eicon-slider-push',
             ],
         ];
