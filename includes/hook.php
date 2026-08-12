@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class Hook {
     //action hooks
     const WIDGET_REGISTERED = 'repeaterly/widgets/registered';

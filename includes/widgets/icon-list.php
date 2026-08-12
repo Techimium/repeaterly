@@ -1,6 +1,10 @@
 <?php
 namespace Repeaterly\Includes\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Controls_Manager;
 use Elementor\Icons_Manager;

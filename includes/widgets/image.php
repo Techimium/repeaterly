@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Widget_Image;
 use Elementor\Group_Control_Image_Size;
