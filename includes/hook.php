@@ -16,4 +16,5 @@ class Hook {
     const DYNAMIC_LINK_OPTIONS = 'repeaterly/dynamic/sources/link';
     const DYNAMIC_IMAGE_OPTIONS = 'repeaterly/dynamic/sources/image';
     const DYNAMIC_VALUE = 'repeaterly/dynamic/value';
+    const PROMOTION_WIDGETS = 'repeaterly/widgets/promotion';
 }
