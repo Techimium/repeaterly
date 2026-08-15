@@ -1,0 +1,15 @@
+tests
+.github
+vendor
+composer.json
+composer.lock
+phpunit.xml.dist
+.phpunit.result.cache
+.phpunit.cache
+.git
+.gitattributes
+.gitignore
+.distignore
+node_modules
+wp-assets
+PLUGIN-CHECK.md

@@ -37,7 +37,7 @@ jobs:
 
           # Copy plugin files to trunk
           echo "Copying plugin files to trunk..."
-          rsync -av --delete ./ $TMP_DIR/trunk --exclude .github --exclude node_modules --exclude .git --exclude tests --exclude wp-assets
+          rsync -av --delete ./ $TMP_DIR/trunk --exclude .github --exclude node_modules --exclude .git --exclude tests --exclude wp-assets --exclude vendor --exclude composer.json --exclude composer.lock --exclude phpunit.xml.dist --exclude .distignore --exclude .gitignore --exclude .phpunit.result.cache --exclude .phpunit.cache
 
           # Update assets folder (screenshots, banner, icons)
           if [ -d "./assets" ]; then

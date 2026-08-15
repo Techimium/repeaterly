@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class Acf
 {
     public static function get_options_pages()

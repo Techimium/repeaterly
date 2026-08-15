@@ -1,0 +1,28 @@
+{
+    "name": "repeaterly/repeaterly-dev",
+    "description": "Dev-only test tooling for the Repeaterly (Free) plugin. Never required by the shipped plugin at runtime.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6 || ^11.5 || ^12.0",
+        "yoast/phpunit-polyfills": "^4.0",
+        "brain/monkey": "^2.6"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Repeaterly\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "platform-check": true
+    },
+    "scripts": {
+        "test-php": "@php vendor/bin/phpunit",
+        "test-js": "@php tests/check-js.php",
+        "test": [
+            "@test-php",
+            "@test-js"
+        ]
+    }
+}

@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Plugin;
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Utils;
