@@ -1,11 +1,23 @@
 name: Deploy WordPress Plugin
 
-# Trigger only on new Git tags
 on:
   push:
     tags:
-      - 'v*'  # e.g., v1.0.0
-  workflow_dispatch: # This adds the "Manual Run" button
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate the deployment without committing to WordPress.org
+        type: boolean
+        required: true
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wordpress-org-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -14,7 +26,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Install SVN
         run: sudo apt-get update && sudo apt-get install -y subversion rsync
@@ -24,50 +38,81 @@ jobs:
           WPORG_USERNAME: ${{ secrets.WPORG_USERNAME }}
           WPORG_PASSWORD: ${{ secrets.WPORG_PASSWORD }}
           SVN_URL: https://plugins.svn.wordpress.org/repeaterly
-          DRY_RUN: false   # set to true to test without committing
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+          IS_TAG_RELEASE: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && 'true' || 'false' }}
+          GIT_TAG: ${{ github.ref_name }}
         run: |
-          set -e
+          set -Eeuo pipefail
 
           echo "Deploying WordPress plugin to SVN..."
 
-          # Temporary directory
-          TMP_DIR=$(mktemp -d)
-          echo "Checking out SVN into $TMP_DIR"
-          svn checkout $SVN_URL $TMP_DIR --username $WPORG_USERNAME --password $WPORG_PASSWORD --non-interactive --trust-server-cert
+          PLUGIN_VERSION="$(sed -n 's/^Stable tag:[[:space:]]*//Ip' readme.txt | tr -d '\r' | head -n 1)"
+          PHP_VERSION="$(sed -n 's/^[[:space:]]*\*[[:space:]]*Version:[[:space:]]*//p' repeaterly.php | tr -d '\r' | head -n 1)"
 
-          # Copy plugin files to trunk
-          echo "Copying plugin files to trunk..."
-          rsync -av --delete ./ $TMP_DIR/trunk --exclude .github --exclude node_modules --exclude .git --exclude tests --exclude wp-assets --exclude vendor --exclude composer.json --exclude composer.lock --exclude phpunit.xml.dist --exclude .distignore --exclude .gitignore --exclude .phpunit.result.cache --exclude .phpunit.cache
-
-          # Update assets folder (screenshots, banner, icons)
-          if [ -d "./assets" ]; then
-            echo "Updating assets folder..."
-            rsync -av --delete ./wp-assets/ $TMP_DIR/assets/
+          if [[ ! "$PLUGIN_VERSION" =~ ^[0-9]+(\.[0-9]+)+$ ]]; then
+            echo "Invalid or missing Stable tag in readme.txt: '$PLUGIN_VERSION'" >&2
+            exit 1
           fi
 
-          # Determine plugin version from readme.txt stable tag
-          PLUGIN_VERSION=$(grep "^Stable tag:" readme.txt | awk '{print $3}')
+          if [ "$PLUGIN_VERSION" != "$PHP_VERSION" ]; then
+            echo "Version mismatch: readme.txt is $PLUGIN_VERSION but repeaterly.php is $PHP_VERSION" >&2
+            exit 1
+          fi
+
+          if [ "$IS_TAG_RELEASE" = "true" ] && [ "$GIT_TAG" != "v$PLUGIN_VERSION" ]; then
+            echo "Git tag $GIT_TAG does not match plugin version v$PLUGIN_VERSION" >&2
+            exit 1
+          fi
+
           echo "Plugin version detected: $PLUGIN_VERSION"
 
-          # Copy trunk to tag
-          if [ ! -z "$PLUGIN_VERSION" ]; then
-            echo "Creating tag $PLUGIN_VERSION..."
-            mkdir -p $TMP_DIR/tags/$PLUGIN_VERSION
-            rsync -av --delete $TMP_DIR/trunk/ $TMP_DIR/tags/$PLUGIN_VERSION/
+          TMP_DIR=$(mktemp -d)
+          trap 'rm -rf "$TMP_DIR"' EXIT
+          echo "Checking out SVN into $TMP_DIR"
+          svn checkout "$SVN_URL" "$TMP_DIR" \
+            --username "$WPORG_USERNAME" \
+            --password "$WPORG_PASSWORD" \
+            --non-interactive \
+            --no-auth-cache
+
+          echo "Copying plugin files to trunk..."
+          rsync -av --delete --delete-excluded \
+            --exclude-from=.distignore \
+            ./ "$TMP_DIR/trunk/"
+
+          if [ -d "./wp-assets" ]; then
+            echo "Updating WordPress.org directory assets..."
+            rsync -av --delete ./wp-assets/ "$TMP_DIR/assets/"
           fi
 
-          # Add new files and remove deleted files
-          cd $TMP_DIR
-          svn status | awk '{print $2}' | xargs -I{} svn add "{}" --force || true
-          svn status | grep '^!' | awk '{print $2}' | xargs -I{} svn delete "{}" || true
+          cd "$TMP_DIR"
 
-          # Dry run mode
+          # Schedule new files and remove files deleted from Git or excluded by .distignore.
+          svn add --force trunk assets
+          while IFS= read -r status_line; do
+            if [ "${status_line:0:1}" = "!" ]; then
+              svn delete --force "${status_line:8}"
+            fi
+          done < <(svn status)
+
+          if [ -e "tags/$PLUGIN_VERSION" ]; then
+            echo "SVN tag $PLUGIN_VERSION already exists; refusing to overwrite a released version." >&2
+            exit 1
+          fi
+
+          echo "Creating SVN tag $PLUGIN_VERSION from trunk..."
+          svn copy trunk "tags/$PLUGIN_VERSION"
+
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry run mode ON. No commit will be made."
             svn status
             exit 0
           fi
 
-          # Commit changes
           echo "Committing to WordPress SVN..."
-          svn commit -m "Deploy version $PLUGIN_VERSION" --username $WPORG_USERNAME --password $WPORG_PASSWORD --non-interactive
+          svn commit \
+            -m "Deploy version $PLUGIN_VERSION" \
+            --username "$WPORG_USERNAME" \
+            --password "$WPORG_PASSWORD" \
+            --non-interactive \
+            --no-auth-cache
