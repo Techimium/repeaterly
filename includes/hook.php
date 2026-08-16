@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class Hook {
     //action hooks
     const WIDGET_REGISTERED = 'repeaterly/widgets/registered';
@@ -12,4 +16,5 @@ class Hook {
     const DYNAMIC_LINK_OPTIONS = 'repeaterly/dynamic/sources/link';
     const DYNAMIC_IMAGE_OPTIONS = 'repeaterly/dynamic/sources/image';
     const DYNAMIC_VALUE = 'repeaterly/dynamic/value';
+    const PROMOTION_WIDGETS = 'repeaterly/widgets/promotion';
 }

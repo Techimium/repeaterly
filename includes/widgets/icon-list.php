@@ -1,6 +1,10 @@
 <?php
 namespace Repeaterly\Includes\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Controls_Manager;
 use Elementor\Icons_Manager;
@@ -86,7 +90,7 @@ class Icon_List extends Widget_Icon_List {
 
 		$list = Dynamic_Content::get_value(Dynamic_Content::SUB, $this->get_settings('repeater_field'));
 		if(empty($list)){
-			$list = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('repeater_field'), $this->resolve_acf_post_id());
+			$list = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('repeater_field'), $this->resolve_acf_post_id($this->get_settings('repeater_field')));
 		}
 
 		$icon = $this->get_settings('selected_icon');

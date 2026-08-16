@@ -49,7 +49,7 @@ class ACF_Color extends Tag
 			return;
 		}
 
-		$value = Acf::get_field_value($key, $this->resolve_acf_post_id());
+		$value = Acf::get_field_value($key, $this->resolve_acf_post_id($key));
 
 		if (is_string($value) || is_numeric($value)) {
 			echo wp_kses_post($value);

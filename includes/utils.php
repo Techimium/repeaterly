@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class Utils {
     public static function trim_words(string $text, int $max_length = 20, string $more = '...') {
         $words = explode(' ', wp_strip_all_tags($text));

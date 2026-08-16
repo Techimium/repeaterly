@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class Acf
 {
     public static function get_options_pages()
@@ -26,10 +30,80 @@ class Acf
         return $options;
     }
 
+    /**
+     * Resolve a field together with the ACF object it belongs to.
+     *
+     * @return array{name: string, post_id: mixed, field: array|false}
+     */
+    public static function resolve_field($key, $post_id = false, $format_value = true, $load_value = true)
+    {
+        $resolved_post_id = Acf_Context::resolve_field_post_id($key, $post_id);
+        $field = false;
+
+        if (function_exists('get_field_object')) {
+            if (false === $resolved_post_id && function_exists('get_sub_field_object')) {
+                $field = get_sub_field_object($key, $format_value, $load_value);
+            } else {
+                $field = Acf_Context::with_acf_post_id(
+                    $resolved_post_id,
+                    static function () use ($key, $resolved_post_id, $format_value, $load_value) {
+                        return get_field_object($key, $resolved_post_id, $format_value, $load_value);
+                    }
+                );
+            }
+        }
+
+        return [
+            'name' => $key,
+            'post_id' => $resolved_post_id,
+            'field' => $field,
+        ];
+    }
+
+    public static function get_raw_field_value($key, $post_id = false)
+    {
+        $resolved = self::resolve_field($key, $post_id, false, false);
+
+        if (function_exists('get_field')) {
+            if (false === $resolved['post_id'] && function_exists('get_sub_field')) {
+                return get_sub_field($resolved['name']);
+            }
+
+            return Acf_Context::with_acf_post_id(
+                $resolved['post_id'],
+                static function () use ($resolved) {
+                    return get_field($resolved['name'], $resolved['post_id']);
+                }
+            );
+        }
+
+        return get_post_meta(
+            $resolved['post_id'] ? $resolved['post_id'] : get_the_ID(),
+            $resolved['name'],
+            true
+        );
+    }
+
+    public static function have_rows($key, $post_id = false)
+    {
+        if (!function_exists('have_rows')) {
+            return false;
+        }
+
+        return Acf_Context::with_acf_post_id(
+            $post_id,
+            static function () use ($key, $post_id) {
+                return have_rows($key, $post_id);
+            }
+        );
+    }
+
     public static function get_field_value($key, $post_id = false)
     {
         if (function_exists('get_field')) {
-            $field = !empty(get_sub_field_object($key)) ? get_sub_field_object($key) : get_field_object($key, $post_id);
+            $resolved = self::resolve_field($key, $post_id);
+            $field = $resolved['field'];
+            $post_id = $resolved['post_id'];
 
             if ($field && isset($field['type'])) {
                 $value = $field['value'];
@@ -51,7 +125,7 @@ class Acf
                         $value = self::get_queried_object_meta($key, $post_id);
                         break;
                     case 'google_map':
-                        $meta = self::get_queried_object_meta($key);
+                        $meta = self::get_queried_object_meta($key, $post_id);
                         $value = isset($meta['address']) ? $meta['address'] : '';
                         break;
                     case 'true_false':
@@ -73,10 +147,16 @@ class Acf
                         break;
                 }
             } else {
-                $value = get_field($key, $post_id);
+                $value = Acf_Context::with_acf_post_id(
+                    $post_id,
+                    static function () use ($key, $post_id) {
+                        return get_field($key, $post_id);
+                    }
+                );
             }
         } else {
             // Fallback if ACF not installed.
+            $post_id = Acf_Context::resolve_field_post_id($key, $post_id);
             $value = get_post_meta($post_id ? $post_id : get_the_ID(), $key, true);
         }
 

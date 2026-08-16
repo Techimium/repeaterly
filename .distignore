@@ -1,0 +1,15 @@
+/.github/
+/.git/
+/tests/
+/vendor/
+/node_modules/
+/wp-assets/
+/composer.json
+/composer.lock
+/phpunit.xml.dist
+/.phpunit.result.cache
+/.phpunit.cache/
+/.gitattributes
+/.gitignore
+/.distignore
+/PLUGIN-CHECK.md

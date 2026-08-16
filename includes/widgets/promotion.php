@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Widget_Base;
 use Repeaterly;
 
@@ -52,10 +56,11 @@ class Promotion extends Widget_Base
     {
 ?>
         <a
-            href="<?php echo esc_attr(Repeaterly::pro_link()); ?>"
+            href="<?php echo esc_url(Repeaterly::pro_link()); ?>"
             style="display: inline-block; padding: 10px; font-weight: bold; border-radius: 5px; border: 2px solid darkred; color: darkred;"
-            target="_blank">
-            Upgrade to Repeaterly Pro
+            target="_blank"
+            rel="noopener noreferrer">
+            <?php esc_html_e('Upgrade to Repeaterly Pro', 'repeaterly'); ?>
         </a>
 <?php
     }

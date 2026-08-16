@@ -61,18 +61,43 @@ class Widget_Manager
 
     public function pro_widgets_promote($widgets_manager)
     {
-        $promotion_widgets = [
+        $promotion_widgets = apply_filters(Hook::PROMOTION_WIDGETS, [
             [
-                'widget_name' => 'repeaterly-loop-grid',
-                'widget_title' => 'ACF Repeater Loop Grid (Pro)',
+                'widget_name' => 'repeaterly-pro-loop-grid-promo',
+                'widget_title' => __('ACF Repeater Loop Grid (Pro)', 'repeaterly'),
                 'widget_icon' => 'eicon-loop-builder',
             ],
             [
-                'widget_name' => 'repeaterly-image-carousel',
-                'widget_title' => 'ACF Image Carousel (Pro)',
+                'widget_name' => 'repeaterly-pro-loop-carousel-promo',
+                'widget_title' => __('ACF Repeater Loop Carousel (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-carousel-loop',
+            ],
+            [
+                'widget_name' => 'repeaterly-pro-image-carousel-promo',
+                'widget_title' => __('ACF Image Carousel (Pro)', 'repeaterly'),
                 'widget_icon' => 'eicon-slider-push',
             ],
-        ];
+            [
+                'widget_name' => 'repeaterly-pro-relationship-loop-grid-promo',
+                'widget_title' => __('ACF Relationship Loop Grid (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-loop-builder',
+            ],
+            [
+                'widget_name' => 'repeaterly-pro-relationship-loop-carousel-promo',
+                'widget_title' => __('ACF Relationship Loop Carousel (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-carousel-loop',
+            ],
+            [
+                'widget_name' => 'repeaterly-pro-flexible-content-promo',
+                'widget_title' => __('ACF Flexible Content (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-layout-settings',
+            ],
+            [
+                'widget_name' => 'repeaterly-pro-tabs-promo',
+                'widget_title' => __('ACF Repeater Tabs (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-tabs',
+            ],
+        ]);
 
         foreach ($promotion_widgets as $promotion_widget) {
             $widgets_manager->register(new Promotion([], $promotion_widget));

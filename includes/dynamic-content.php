@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 class Dynamic_Content
 {
     const STATIC = 'static';
@@ -65,7 +69,7 @@ class Dynamic_Content
                 return $source_value ? get_sub_field($source_value) : '';
                 break;
             case self::CUSTOM:
-                return $source_value ? get_field($source_value, $post_id) : '';
+                return $source_value ? Acf::get_raw_field_value($source_value, $post_id) : '';
                 break;
             case self::POST_TITLE:
                 return get_the_title();

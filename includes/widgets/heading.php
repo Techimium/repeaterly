@@ -2,6 +2,10 @@
 
 namespace Repeaterly\Includes\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Plugin;
 use Repeaterly\Includes\Dynamic_Content;
 use Elementor\Utils;
@@ -107,7 +111,7 @@ class Heading extends Widget_Heading
 		$settings = parent::get_settings_for_display();
 
 		if ($this->get_settings('field_type')) {
-			$post_id = $this->get_settings('field_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id() : false;
+			$post_id = $this->get_settings('field_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id($this->get_settings('title')) : false;
 			$settings['title'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('title'), $post_id);
 		}
 

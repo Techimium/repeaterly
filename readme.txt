@@ -2,8 +2,8 @@
 Contributors: techimium, mdashraful
 Tags: acf repeater, elementor, dynamic tags, acf flexible content, custom fields
 Requires at least: 5.9
-Tested up to: 7.0
-Stable tag: 2.1.0
+Tested up to: 7.1
+Stable tag: 2.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -71,6 +71,10 @@ Have an ACF Gallery field full of images? The Dynamic Gallery widget pulls all t
 This is for when you want full control over how repeated content looks.
 
 Say you have a Repeater field with 12 team members. Design one "team card" template in Elementor. Repeaterly loops through all 12 rows and applies your template to each one automatically. Change the template once — all 12 cards update. Works as a grid or a carousel slider just like Elementor Pro's native Loop Builder but for **ACF Repeater Fields**.
+
+### ACF Repeater Tabs
+
+Turn an ACF Repeater into a tabbed layout — one tab per row. Point it at a Repeater (or a nested sub-repeater), name the sub-field to use as the tab label, and design one Elementor template for the tab panel. Repeaterly renders that template once per row, so a single template drives every tab using that row's own data. Built on Elementor's own Tabs widget, so all of Elementor's Tabs styling, keyboard navigation, and mobile behavior come included automatically.
 
 ### ACF Relationship Loop Grid & Carousel
 
@@ -219,15 +223,21 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 3. ACF Repeater Loop Grid (Pro)
 4. ACF Repeater Loop Carousel (Pro)
 5. Nested Repeater Support (Pro)
-6. ACF Relationship Loop Grid (Pro)
-7. ACF Flexible Content (Pro)
-8. Dynamic Icon List powered by ACF Repeater
-9. Dynamic Accordion powered by ACF Repeater
-10. Live ACF Repeater Loop preview in Elementor editor
-11. ACF Gallery widget
-12. ACF Dynamic Image Carousel (Pro)
+6. ACF Repeater Tabs (Pro) - turn repeater rows into polished, template-powered tabs
+7. ACF Relationship Loop Grid (Pro)
+8. ACF Flexible Content (Pro)
+9. Dynamic Icon List powered by ACF Repeater
+10. Dynamic Accordion powered by ACF Repeater
+11. Live ACF Repeater Loop preview in Elementor editor
+12. ACF Gallery widget
+13. ACF Dynamic Image Carousel (Pro)
 
 == Changelog ==
+
+= 2.2.0 =
+Fixed: ACF fields now resolve the intended page/post during WordPress Preview Changes while preserving nested repeater rows, external posts, relationship templates, clone fields, and Options Pages.
+Added: the plugin now records its own version so a future release can run one-time upgrade work exactly once. Nothing reads it yet, and nothing about the editor or frontend changes.
+Added: deleting the plugin now removes the option it stores, leaving nothing behind in the database.
 
 = 2.1.0 =
 Added: ACF Options Page as a data source for all ACF dynamic tags and dynamic widgets (button, heading, icon list, image, image gallery)

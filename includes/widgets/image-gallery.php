@@ -85,7 +85,7 @@ class Image_Gallery extends Widget_Image_Gallery
 
 		if ($this->get_settings('wp_gallery')) {
 			if ($this->get_settings('wp_gallery')) {
-				$items = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('wp_gallery'), $this->resolve_acf_post_id());
+				$items = Dynamic_Content::get_value(Dynamic_Content::CUSTOM, $this->get_settings('wp_gallery'), $this->resolve_acf_post_id($this->get_settings('wp_gallery')));
 
 				if (empty($items)) {
 					$items = Dynamic_Content::get_value(Dynamic_Content::SUB, $this->get_settings('wp_gallery'));
