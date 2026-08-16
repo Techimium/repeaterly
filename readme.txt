@@ -186,6 +186,9 @@ Yes, completely. Everything is drag and drop inside Elementor. Set up your ACF f
 = Does Repeaterly support nested ACF Repeater fields? =
 Yes, with Repeaterly Pro. A nested Repeater is a Repeater inside another Repeater — for example, a list of pricing plans where each plan has its own list of features. This is hard to handle in Elementor alone. Repeaterly Pro makes it straightforward with no coding.
 
+= Can I turn an ACF Repeater into tabs? =
+Yes, with Repeaterly Pro. The ACF Repeater Tabs widget turns each row of a Repeater (or a nested sub-repeater) into its own tab. Point it at your Repeater, choose the sub-field to use as the tab label, and design one Elementor template for the tab panel — Repeaterly renders that template once per row using that row's own data. It's built on Elementor's native Tabs widget, so Elementor's Tabs styling, keyboard navigation, and mobile behavior all work automatically.
+
 = Does Repeaterly support ACF Relationship fields? =
 Yes. Relationship fields let you link posts together in ACF — like connecting products to categories or posts to authors. Repeaterly Pro displays those linked posts in a fully custom Elementor grid or carousel.
 
@@ -236,7 +239,6 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 
 = 2.2.0 =
 Fixed: ACF fields now resolve the intended page/post during WordPress Preview Changes while preserving nested repeater rows, external posts, relationship templates, clone fields, and Options Pages.
-Added: the plugin now records its own version so a future release can run one-time upgrade work exactly once. Nothing reads it yet, and nothing about the editor or frontend changes.
 Added: deleting the plugin now removes the option it stores, leaving nothing behind in the database.
 
 = 2.1.0 =
