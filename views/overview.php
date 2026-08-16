@@ -43,7 +43,7 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			</div>
 
 			<div class="rply-hero__subtitle">
-				<?php esc_html_e( 'Build dynamic grids, carousels and modular pages from ACF Repeater, Nested Repeater, Flexible Content and Relationship fields – powered by Dynamic Tags on every Elementor widget. No Elementor Pro. No code.', 'repeaterly' ); ?>
+				<?php esc_html_e( 'Build dynamic grids, carousels, tabs and modular pages from ACF Repeater, Nested Repeater, Flexible Content and Relationship fields – powered by Dynamic Tags on every Elementor widget. No Elementor Pro. No code.', 'repeaterly' ); ?>
 			</div>
 
 			<div class="rply-hero__cta">
@@ -183,7 +183,7 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 				<?php esc_html_e( 'Go further with Repeaterly Pro', 'repeaterly' ); ?>
 			</div>
 			<div class="rply-pro__desc">
-				<?php esc_html_e( 'Six template-driven Loop Builders for ACF Repeater, Relationship and Flexible Content fields – with pagination, carousels and nested data. Built for serious, content-heavy sites.', 'repeaterly' ); ?>
+				<?php esc_html_e( 'Seven template-driven widgets for ACF Repeater, Relationship and Flexible Content fields – with grids, carousels, tabs, pagination and nested data. Built for serious, content-heavy sites.', 'repeaterly' ); ?>
 			</div>
 		</div>
 
@@ -195,6 +195,10 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			<div class="rply-pro-feature">
 				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'ACF Repeater Loop Carousel', 'repeaterly' ); ?></div>
 				<div class="rply-pro-feature__desc"><?php esc_html_e( 'The same repeater data as a touch-ready carousel: slides to show & scroll, autoplay with pause-on-hover, custom arrows & dots, infinite loop and a 3D coverflow effect.', 'repeaterly' ); ?></div>
+			</div>
+			<div class="rply-pro-feature">
+				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'ACF Repeater Tabs', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Turn each ACF Repeater row into a tab: use a sub-field for the label and render an Elementor template as the panel, with Elementor styling and responsive behavior.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-pro-feature">
 				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'ACF Flexible Content builder', 'repeaterly' ); ?></div>
@@ -285,6 +289,12 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 
 			<div class="rply-compare__row" role="row">
 				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Repeater Loop Carousel (autoplay, arrows, coverflow)', 'repeaterly' ); ?></span>
+				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
+				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
+			</div>
+
+			<div class="rply-compare__row" role="row">
+				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'ACF Repeater Tabs', 'repeaterly' ); ?></span>
 				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
 				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
 			</div>

@@ -223,13 +223,14 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 3. ACF Repeater Loop Grid (Pro)
 4. ACF Repeater Loop Carousel (Pro)
 5. Nested Repeater Support (Pro)
-6. ACF Relationship Loop Grid (Pro)
-7. ACF Flexible Content (Pro)
-8. Dynamic Icon List powered by ACF Repeater
-9. Dynamic Accordion powered by ACF Repeater
-10. Live ACF Repeater Loop preview in Elementor editor
-11. ACF Gallery widget
-12. ACF Dynamic Image Carousel (Pro)
+6. ACF Repeater Tabs (Pro) - turn repeater rows into polished, template-powered tabs
+7. ACF Relationship Loop Grid (Pro)
+8. ACF Flexible Content (Pro)
+9. Dynamic Icon List powered by ACF Repeater
+10. Dynamic Accordion powered by ACF Repeater
+11. Live ACF Repeater Loop preview in Elementor editor
+12. ACF Gallery widget
+13. ACF Dynamic Image Carousel (Pro)
 
 == Changelog ==
 
