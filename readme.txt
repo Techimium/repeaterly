@@ -235,6 +235,8 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 
 = 2.2.0 =
 Fixed: ACF fields now resolve the intended page/post during WordPress Preview Changes while preserving nested repeater rows, external posts, relationship templates, clone fields, and Options Pages.
+Added: the plugin now records its own version so a future release can run one-time upgrade work exactly once. Nothing reads it yet, and nothing about the editor or frontend changes.
+Added: deleting the plugin now removes the option it stores, leaving nothing behind in the database.
 
 = 2.1.0 =
 Added: ACF Options Page as a data source for all ACF dynamic tags and dynamic widgets (button, heading, icon list, image, image gallery)

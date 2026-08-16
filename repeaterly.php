@@ -12,6 +12,7 @@
  * Domain Path: /languages
  */
 
+use Repeaterly\Includes\Migrator;
 use Repeaterly\Includes\Page_Manager;
 use Repeaterly\Includes\Tag_Manager;
 use Repeaterly\Includes\Widget_Manager;
@@ -96,6 +97,12 @@ if (!class_exists('Repeaterly')) {
         {
             require_once self::plugin_dir() . 'autoloader.php';
 
+            // Must stay above the compatibility check, which hooks admin_init
+            // to deactivate this plugin outright when Elementor or ACF is
+            // missing. Below it, such a site would never record the version it
+            // is running and any future upgrade step would be skipped.
+            Migrator::run(self::plugin_version());
+
             if ($this->is_compatible()) {
                 Widget_Manager::init();
                 Tag_Manager::init();
@@ -173,12 +180,29 @@ if (!class_exists('Repeaterly')) {
         }
 
         /**
+         * Deleting the plugin must leave nothing behind in wp_options.
+         *
+         * The autoloader is required here rather than assumed: uninstall runs
+         * by including this file and calling straight into this method, so
+         * init() — which is where the autoloader is normally registered — never
+         * fires on this path.
+         */
+        public static function uninstall()
+        {
+            require_once self::plugin_dir() . 'autoloader.php';
+
+            delete_option(Migrator::$version_option);
+        }
+
+        /**
          * Run the plugin
          */
         public function __construct()
         {
             add_action('plugins_loaded', [$this, 'init'], 100);
             add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'add_premium_link']);
+
+            register_uninstall_hook(__FILE__, ['Repeaterly', 'uninstall']);
         }
     }
 
