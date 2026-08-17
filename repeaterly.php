@@ -4,7 +4,7 @@
  * Plugin Name: Repeaterly
  * Plugin URI: https://repeaterly.com
  * Description: Connect ACF repeater, flexible content & relationship fields to Elementor with dynamic tags.
- * Version: 2.2.0
+ * Version: 2.3.0
  * Author: Techimium
  * Author URI: https://techimium.com
  * License: GPLv2 or later
@@ -30,7 +30,7 @@ if (!class_exists('Repeaterly')) {
          */
         static function plugin_version()
         {
-            return '2.2.0';
+            return '2.3.0';
         }
 
         /**
