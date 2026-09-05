@@ -58,6 +58,12 @@ class Button extends Widget_Button
 			]
 		);
 
+		$this->add_deprecation_message(
+			'2.2.1',
+			esc_html__( 'This widget is kept for backward compatibility. For new content, use the native Button widget with Dynamic Tags instead.', 'repeaterly' ),
+			'button'
+		);
+
 		$this->add_control(
 			'field_type',
 			[
