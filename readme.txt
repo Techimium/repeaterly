@@ -253,6 +253,7 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 12. ACF Gallery widget
 13. ACF Dynamic Image Carousel (Pro)
 14. ACF Checkbox List (Pro) — display selected and unselected ACF choices as a fully styled feature list
+15. Elementor Atomic Widgets and per-item dynamic styles (Pro) — give every repeated item its own ACF-driven colors, backgrounds, borders, and responsive styling
 
 == Changelog ==
 
