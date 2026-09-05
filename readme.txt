@@ -72,6 +72,12 @@ This is for when you want full control over how repeated content looks.
 
 Say you have a Repeater field with 12 team members. Design one "team card" template in Elementor. Repeaterly loops through all 12 rows and applies your template to each one automatically. Change the template once — all 12 cards update. Works as a grid or a carousel slider just like Elementor Pro's native Loop Builder but for **ACF Repeater Fields**.
 
+### Dynamic Styles & Elementor Atomic Widgets
+
+Build loop templates with Elementor's classic widgets or its newer Atomic Widgets (Editor V4). Repeaterly Pro makes dynamic colors, backgrounds, borders, overlays, responsive values, and other style controls resolve separately for every repeater row or related post — so each item can have its own data-driven design instead of inheriting the first item's styling.
+
+This works across Repeater Loop Grid and Carousel, Relationship Loop Grid and Carousel, Repeater Tabs, and Flexible Content templates.
+
 ### ACF Repeater Tabs
 
 Turn an ACF Repeater into a tabbed layout — one tab per row. Point it at a Repeater (or a nested sub-repeater), name the sub-field to use as the tab label, and design one Elementor template for the tab panel. Repeaterly renders that template once per row, so a single template drives every tab using that row's own data. Built on Elementor's own Tabs widget, so all of Elementor's Tabs styling, keyboard navigation, and mobile behavior come included automatically.
@@ -95,6 +101,12 @@ If you reuse a Repeater field via an ACF Clone field set to "seamless" display m
 ### Dynamic Image Carousel
 
 A dedicated carousel widget that pulls images from ACF fields. Connect it to your ACF image field and it populates automatically with full styling control.
+
+### ACF Checkbox List
+
+Turn an ACF Checkbox field into a polished feature list, comparison list, checklist, or plan summary. Repeaterly Pro displays every choice with separate checked and unchecked icons, and lets you show all choices, selected choices only, or unselected choices only. Keep the field's original order or group checked or unchecked items first.
+
+Use the ACF choice label or stored value as the item text, style checked and unchecked states independently with Elementor's full Icon List controls, and pull the field from the current post, another post, or an ACF Options Page. Inside a Repeaterly loop template, the widget can also read a checkbox sub-field from the current repeater row.
 
 ### Load Content from Any Post or ACF Options Page
 
@@ -210,6 +222,12 @@ Yes. Repeaterly Pro supports built-in pagination and a "Load More" button for bo
 = Can I use third-party Elementor widgets inside my loop templates? =
 Yes. Repeaterly's Dynamic Tags work with any Elementor widget, including widgets from third-party addons. Drop any widget into your loop template and connect it to an ACF field.
 
+= Can I display an ACF Checkbox field as a feature list? =
+Yes, with Repeaterly Pro. The ACF Checkbox List widget displays the choices defined on an ACF Checkbox field with separate checked and unchecked icons. You can filter which choices appear, change their order, use labels or stored values, and style checked and unchecked items independently. It also supports other posts, ACF Options Pages, and checkbox sub-fields inside Repeaterly loop templates.
+
+= Do Repeaterly loop templates support Elementor Atomic Widgets? =
+Yes, with Repeaterly Pro. Classic and Atomic Widgets can be used inside repeated templates. Their normal styles and dynamic-tag-driven styles resolve in the correct repeater-row or related-post context, so each rendered item can have its own dynamic colors, backgrounds, borders, responsive values, and other styling.
+
 = Will this slow down my website? =
 No — it usually makes your site faster. Manually duplicated sections each get saved separately in your database and add extra markup to every page load. Repeaterly uses one template and one data source, which is much lighter.
 
@@ -234,6 +252,7 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 11. Live ACF Repeater Loop preview in Elementor editor
 12. ACF Gallery widget
 13. ACF Dynamic Image Carousel (Pro)
+14. ACF Checkbox List (Pro) — display selected and unselected ACF choices as a fully styled feature list
 
 == Changelog ==
 

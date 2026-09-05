@@ -97,6 +97,11 @@ class Widget_Manager
                 'widget_title' => __('ACF Repeater Tabs (Pro)', 'repeaterly'),
                 'widget_icon' => 'eicon-tabs',
             ],
+            [
+                'widget_name' => 'repeaterly-pro-checkbox-list-promo',
+                'widget_title' => __('ACF Checkbox List (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-checkbox',
+            ],
         ]);
 
         foreach ($promotion_widgets as $promotion_widget) {
