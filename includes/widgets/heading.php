@@ -118,7 +118,7 @@ class Heading extends Widget_Heading
 
 		if ($this->get_settings('field_type')) {
 			$post_id = $this->get_settings('field_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id($this->get_settings('title')) : false;
-			$settings['title'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('title'), $post_id);
+			$settings['title'] = Dynamic_Content::get_text($this->get_settings('field_type'), $this->get_settings('title'), $post_id);
 		}
 
 		if ( Plugin::$instance->editor->is_edit_mode() && $settings['title'] == '' ) {
@@ -126,7 +126,8 @@ class Heading extends Widget_Heading
 		}
 
 		if ($this->get_settings('link_type')) {
-			$link = Dynamic_Content::get_value($this->get_settings('link_type'), $this->get_settings('link')['url']);
+			$link_post_id = $this->get_settings('link_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id($this->get_settings('link')['url']) : false;
+			$link = Dynamic_Content::get_link($this->get_settings('link_type'), $this->get_settings('link')['url'], $link_post_id);
 
 			if (is_array($link)) {
 				$settings['link'] = $link;
