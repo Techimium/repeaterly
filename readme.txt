@@ -260,15 +260,16 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 == Changelog ==
 
 = 2.3.0 =
-Fixed: ACF fields now render correctly whatever Return Format they use. Pages that crashed or showed "Array" now show the right value.
-Fixed: Checkbox, Radio and Select fields set to "Both (Array)" show their choice labels. Choices grouped under headings show their label, and a single Select in "Both (Array)" shows its label once (it showed it twice before).
-Fixed: the ACF URL tag outputs a working link for Image, File, Post Object, Relationship, Page Link and Taxonomy fields, and a mailto: link for Email fields.
-Fixed: the ACF Gallery tag and ACF Gallery widget show the images stored in the field for the "Image URL" and "Image ID" formats. Before, the widget could show the page's own attached images instead.
-Fixed: the Dynamic Image widget shows images from Image fields set to "Image ID", and its placeholder when the image was deleted.
-Fixed: Dynamic Text and Dynamic Button show Checkbox values, maps and RGBA colors as text instead of "Array", and their links work with Email, Post Object and File fields. The Dynamic Text link now reads the selected ACF Options Page, as Dynamic Button's link already did.
-Fixed: Color Picker fields in "RGBA Array" format show the color. Google Map and oEmbed fields read the selected Options Page or repeater row.
-Fixed: deleted images, posts or terms, and unexpected field values, now show the tag's Fallback or nothing, never a PHP error or warning.
+Improved: ACF fields render correctly in every Return Format.
+Improved: Checkbox, Radio and Select fields show their choice labels in every format, including "Both (Array)" and grouped choices.
+Improved: the ACF URL tag supports Image, File, Post Object, Relationship, Page Link, Taxonomy and Email fields.
+Improved: the ACF Gallery tag and ACF Gallery widget support the "Image URL" and "Image ID" formats.
+Improved: the Dynamic Image widget supports Image fields set to "Image ID".
+Improved: Dynamic Text and Dynamic Button support Checkbox, Google Map and RGBA color values, and links from Email, Post Object and File fields. Dynamic Text links support ACF Options Pages.
+Improved: Color Picker "RGBA Array" support, and Options Page and repeater row support for Google Map and oEmbed fields.
+Improved: fallback handling for missing images, posts, terms and field values.
 Added: ACF Radio List (Pro), ACF Select List (Pro) and ACF Button Group List (Pro) placeholders in the Repeaterly widget category.
+Improved: Repeaterly overview screen.
 Works with every Repeaterly Pro version; no settings change and no re-save is needed.
 
 = 2.2.1 =

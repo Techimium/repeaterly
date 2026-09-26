@@ -43,7 +43,7 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			</div>
 
 			<div class="rply-hero__subtitle">
-				<?php esc_html_e( 'Build dynamic grids, carousels, tabs and modular pages from ACF Repeater, Nested Repeater, Flexible Content and Relationship fields – powered by Dynamic Tags on every Elementor widget. No Elementor Pro. No code.', 'repeaterly' ); ?>
+				<?php esc_html_e( 'Build dynamic grids, carousels, tabs and modular pages from ACF Repeater, Nested Repeater, Flexible Content, Relationship and Options Page fields – powered by Dynamic Tags on every Elementor widget. No Elementor Pro. No code.', 'repeaterly' ); ?>
 			</div>
 
 			<div class="rply-hero__cta">
@@ -117,7 +117,7 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			<div class="rply-step">
 				<span class="rply-step__num">1</span>
 				<div class="rply-step__title" role="heading" aria-level="3"><?php esc_html_e( 'Create your ACF fields', 'repeaterly' ); ?></div>
-				<div class="rply-step__desc"><?php esc_html_e( 'Add Repeater or Relationship fields (nested subfields welcome) to any post type.', 'repeaterly' ); ?></div>
+				<div class="rply-step__desc"><?php esc_html_e( 'Add Repeater, Relationship or Flexible Content fields to any post type or ACF Options Page.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-step">
 				<span class="rply-step__num">2</span>
@@ -149,14 +149,14 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 11 13 3.4a2 2 0 0 0-1.4-.6H5a2 2 0 0 0-2 2v6.6c0 .5.2 1 .6 1.4l7.6 7.6a2 2 0 0 0 2.8 0l6.6-6.6a2 2 0 0 0 0-2.8zM7.5 9A1.5 1.5 0 1 1 9 7.5 1.5 1.5 0 0 1 7.5 9z"/></svg>
 				</span>
 				<div class="rply-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Dynamic Tags for any widget', 'repeaterly' ); ?></div>
-				<div class="rply-feature__desc"><?php esc_html_e( 'Use ACF fields, subfields and post data inside every Elementor widget.', 'repeaterly' ); ?></div>
+				<div class="rply-feature__desc"><?php esc_html_e( 'Use ACF fields, subfields and post data – in any return format – inside every Elementor widget.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-feature">
 				<span class="rply-feature__icon rply-feature__icon--teal">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v4H4zm0 5.5h16v4H4zM4 16h16v4H4z" opacity=".9"/></svg>
 				</span>
 				<div class="rply-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Repeater-based widgets', 'repeaterly' ); ?></div>
-				<div class="rply-feature__desc"><?php esc_html_e( 'Dynamic icon lists, accordions and galleries backed by ACF repeaters.', 'repeaterly' ); ?></div>
+				<div class="rply-feature__desc"><?php esc_html_e( 'Dynamic icon lists, accordions and galleries backed by ACF Repeater and Gallery fields.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-feature">
 				<span class="rply-feature__icon rply-feature__icon--amber">
@@ -167,10 +167,10 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			</div>
 			<div class="rply-feature">
 				<span class="rply-feature__icon rply-feature__icon--rose">
-					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.6 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4a14 14 0 0 1 1.9 4h-3.8A14 14 0 0 1 12 4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4zm.8 2h2.9a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zM8 8H5.1a8 8 0 0 1 4.3-3.6A15.7 15.7 0 0 0 8 8zm4 12a14 14 0 0 1-1.9-4h3.8A14 14 0 0 1 12 20zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6a15.7 15.7 0 0 0 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4z"/></svg>
 				</span>
-				<div class="rply-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Beginner friendly', 'repeaterly' ); ?></div>
-				<div class="rply-feature__desc"><?php esc_html_e( 'Install, connect your fields, drag and drop. No PHP required, ever.', 'repeaterly' ); ?></div>
+				<div class="rply-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'ACF Options Page support', 'repeaterly' ); ?></div>
+				<div class="rply-feature__desc"><?php esc_html_e( 'Store site-wide content once on an Options Page and show it in any widget or Dynamic Tag.', 'repeaterly' ); ?></div>
 			</div>
 		</div>
 	</div>
@@ -183,7 +183,7 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 				<?php esc_html_e( 'Go further with Repeaterly Pro', 'repeaterly' ); ?>
 			</div>
 			<div class="rply-pro__desc">
-				<?php esc_html_e( 'Seven template-driven widgets for ACF Repeater, Relationship and Flexible Content fields – with grids, carousels, tabs, pagination and nested data. Built for serious, content-heavy sites.', 'repeaterly' ); ?>
+				<?php esc_html_e( 'Eleven widgets for ACF Repeater, Relationship, Flexible Content and choice fields – template-driven grids, carousels and tabs, plus pagination, nested data and per-row styling. Built for serious, content-heavy sites.', 'repeaterly' ); ?>
 			</div>
 		</div>
 
@@ -202,7 +202,7 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			</div>
 			<div class="rply-pro-feature">
 				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'ACF Flexible Content builder', 'repeaterly' ); ?></div>
-				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Map each Flexible Content layout to its own Elementor template and let Repeaterly assemble the whole page, block by block – true modular, code-free page building.', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Map each Flexible Content layout to its own Elementor template and let Repeaterly assemble the whole page, block by block – reorder layouts by drag and drop, right in the widget.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-pro-feature">
 				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Relationship Loop Grid', 'repeaterly' ); ?></div>
@@ -217,20 +217,24 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Spin up a polished image carousel straight from an ACF gallery or image field, with full navigation, autoplay and spacing controls.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-pro-feature">
-				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Nested repeater support', 'repeaterly' ); ?></div>
-				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Render multi-level, nested repeaters for pricing tables, feature groups, itineraries and any deeply structured content.', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Nested & cloned repeaters', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Render multi-level, nested repeaters for pricing tables, feature groups and itineraries – seamless ACF Clone fields are detected automatically.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-pro-feature">
 				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Pagination, Load More & Infinite Scroll', 'repeaterly' ); ?></div>
 				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Handle large datasets gracefully – choose classic Load More buttons or seamless infinite scroll, with a configurable items-per-page limit.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-pro-feature">
-				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Post ID targeting', 'repeaterly' ); ?></div>
-				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Pull ACF data from any post to build reusable, global sections you can drop anywhere across your site.', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Any post or Options Page', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Loop ACF data from any post or an ACF Options Page to build global sections you manage in one place and drop anywhere.', 'repeaterly' ); ?></div>
 			</div>
 			<div class="rply-pro-feature">
-				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Any widget inside loops', 'repeaterly' ); ?></div>
-				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Compose loop templates from any Elementor widget with full Dynamic Tags support – no layout limits, no compromises.', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'Any widget, per-row styles', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Build loop templates from classic or Atomic (Editor V4) widgets – dynamic colors, backgrounds and borders resolve separately for every row.', 'repeaterly' ); ?></div>
+			</div>
+			<div class="rply-pro-feature">
+				<div class="rply-pro-feature__title" role="heading" aria-level="3"><?php esc_html_e( 'ACF Choice Lists', 'repeaterly' ); ?></div>
+				<div class="rply-pro-feature__desc"><?php esc_html_e( 'Turn Checkbox, Radio, Select and Button Group fields into styled icon lists with separate selected and unselected states.', 'repeaterly' ); ?></div>
 			</div>
 		</div>
 
@@ -318,19 +322,31 @@ $repeaterly_is_pro = class_exists( 'Repeaterly_Pro' );
 			</div>
 
 			<div class="rply-compare__row" role="row">
-				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Nested repeater rendering', 'repeaterly' ); ?></span>
+				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'ACF Checkbox, Radio, Select & Button Group Lists', 'repeaterly' ); ?></span>
 				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
 				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
 			</div>
 
 			<div class="rply-compare__row" role="row">
-				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Pagination & Load More', 'repeaterly' ); ?></span>
+				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Per-row dynamic styles & Atomic Widgets', 'repeaterly' ); ?></span>
 				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
 				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
 			</div>
 
 			<div class="rply-compare__row" role="row">
-				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Post ID targeting for global sections', 'repeaterly' ); ?></span>
+				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Nested & cloned repeater rendering', 'repeaterly' ); ?></span>
+				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
+				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
+			</div>
+
+			<div class="rply-compare__row" role="row">
+				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Pagination, Load More & Infinite Scroll', 'repeaterly' ); ?></span>
+				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
+				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
+			</div>
+
+			<div class="rply-compare__row" role="row">
+				<span class="rply-compare__cell rply-compare__cell--feature" role="cell"><?php esc_html_e( 'Loop data from any post or Options Page', 'repeaterly' ); ?></span>
 				<span class="rply-compare__cell" role="cell"><span class="rply-no" aria-label="<?php esc_attr_e( 'Not included', 'repeaterly' ); ?>">&ndash;</span></span>
 				<span class="rply-compare__cell rply-compare__cell--pro" role="cell"><span class="rply-yes" aria-label="<?php esc_attr_e( 'Included', 'repeaterly' ); ?>"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.2 4.4 10l-1.1 1.1 4.3 4.3 9-9-1.1-1.1z"/></svg></span></span>
 			</div>
