@@ -266,6 +266,7 @@ Fixed: the Dynamic Image widget shows images from Image fields set to "Image ID"
 Fixed: Dynamic Text and Dynamic Button show Checkbox values, maps and RGBA colors as text instead of "Array", and their links work with Email, Post Object and File fields. The Dynamic Text link now reads the selected ACF Options Page, as Dynamic Button's link already did.
 Fixed: Color Picker fields in "RGBA Array" format show the color. Google Map and oEmbed fields read the selected Options Page or repeater row.
 Fixed: deleted images, posts or terms, and unexpected field values, now show the tag's Fallback or nothing, never a PHP error or warning.
+Added: ACF Radio List (Pro), ACF Select List (Pro) and ACF Button Group List (Pro) placeholders in the Repeaterly widget category.
 Works with every Repeaterly Pro version; no settings change and no re-save is needed.
 
 = 2.2.1 =
