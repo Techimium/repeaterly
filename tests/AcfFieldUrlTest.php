@@ -116,4 +116,19 @@ class AcfFieldUrlTest extends AcfTestCase
         $this->assertSame('', Acf::get_field_url('', self::POST_ID), 'empty field name');
         $this->assertSame('', Acf::get_field_url(['x'], self::POST_ID), 'non-string field name');
     }
+
+    public function test_plain_meta_is_looked_up_as_an_acf_field_only_once()
+    {
+        $this->meta('plain_url', 'https://example.test/meta');
+
+        $lookups = 0;
+        Functions\when('get_field_object')->alias(static function () use (&$lookups) {
+            $lookups++;
+
+            return false;
+        });
+
+        $this->assertSame('https://example.test/meta', Acf::get_field_url('plain_url', self::POST_ID));
+        $this->assertSame(1, $lookups, 'the fallback reads the meta directly instead of repeating the field lookup');
+    }
 }

@@ -3,22 +3,23 @@
 namespace Repeaterly\Includes;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 /**
- * Resolves the WordPress object Repeaterly should pass to ACF.
+ * Decides which post ID Repeaterly passes to ACF.
  *
- * ACF's implicit current object can be a preview revision even while Elementor
- * renders the parent document. Repeaterly therefore uses explicit post IDs for
- * top-level fields, but keeps false for a field confirmed inside the active ACF
- * row so nested repeaters and template previews continue to work.
+ * Top-level fields get an explicit post ID, because ACF's implicit "current post" can be a
+ * preview revision while Elementor renders the parent. Sub-fields of the current repeater row
+ * keep false, so ACF reads them from that row.
  */
 class Acf_Context
 {
     /**
-     * @param mixed $post_id
-     * @return mixed
+     * Turn a post, revision or autosave into its parent post ID.
+     *
+     * @param mixed $post_id Post ID, WP_Post, or a non-numeric ACF ID ('option', 'term_5', ...).
+     * @return mixed Parent post ID; false for 0; a non-numeric ID unchanged.
      */
     public static function normalize_post_id($post_id)
     {
@@ -45,7 +46,11 @@ class Acf_Context
         return $parent_id ? (int) $parent_id : $post_id;
     }
 
-    /** @return int|false */
+    /**
+     * Get the post being rendered (the global post, or the loop's current post).
+     *
+     * @return int|false
+     */
     public static function get_render_post_id()
     {
         global $post;
@@ -69,7 +74,11 @@ class Acf_Context
         return false;
     }
 
-    /** @return int|false */
+    /**
+     * Get the post of the main query, when the main query is a single post.
+     *
+     * @return int|false
+     */
     public static function get_main_queried_post_id()
     {
         if (function_exists('get_queried_object')) {
@@ -86,12 +95,14 @@ class Acf_Context
     }
 
     /**
-     * @param mixed $post_id Explicit ACF object, or false for current.
-     * @return mixed
+     * Get the post ID to read from: the given one, or the current post when none is given.
+     *
+     * @param mixed $post_id Post, term or options ID; empty for the current post.
+     * @return mixed Post ID, the given non-numeric ID, or false when there is no current post.
      */
     public static function resolve_post_id($post_id = false)
     {
-        if (!self::is_implicit_current($post_id)) {
+        if (!self::is_empty_post_id($post_id)) {
             return self::normalize_post_id($post_id);
         }
 
@@ -101,17 +112,20 @@ class Acf_Context
     }
 
     /**
-     * @param string $field_name
-     * @param mixed  $post_id Explicit ACF object, or false for current.
-     * @return mixed false only for a confirmed active-row sub-field.
+     * Get the post ID to read a field from.
+     *
+     * @param string $field_name Field name.
+     * @param mixed  $post_id    Post, term or options ID; empty for the current post.
+     * @return mixed false when the field is a sub-field of the current repeater row, or when
+     *               there is no current post; otherwise the post ID to read from.
      */
     public static function resolve_field_post_id($field_name, $post_id = false)
     {
-        if (!self::is_implicit_current($post_id)) {
+        if (!self::is_empty_post_id($post_id)) {
             return self::normalize_post_id($post_id);
         }
 
-        if (self::has_active_sub_field($field_name)) {
+        if (self::is_sub_field_of_current_row($field_name)) {
             return false;
         }
 
@@ -119,12 +133,11 @@ class Acf_Context
     }
 
     /**
-     * Run one ACF call without allowing ACF's preview filter to remap an
-     * explicit parent post back to its latest revision.
+     * Run an ACF call for this post ID without ACF swapping it for its preview revision.
      *
-     * @param mixed    $post_id
-     * @param callable $callback
-     * @return mixed
+     * @param mixed    $post_id  Post ID the callback reads from.
+     * @param callable $callback The ACF call.
+     * @return mixed The callback's return value.
      */
     public static function with_acf_post_id($post_id, callable $callback)
     {
@@ -156,13 +169,24 @@ class Acf_Context
         }
     }
 
-    /** @param mixed $post_id */
-    private static function is_implicit_current($post_id)
+    /**
+     * Check whether a post ID is empty (false, null, '', 0 or '0'), meaning "the current post".
+     *
+     * @param mixed $post_id
+     * @return bool
+     */
+    public static function is_empty_post_id($post_id)
     {
         return false === $post_id || null === $post_id || '' === $post_id || 0 === $post_id || '0' === $post_id;
     }
 
-    private static function has_active_sub_field($field_name)
+    /**
+     * Check whether the field is a sub-field of the repeater or flexible content row being looped.
+     *
+     * @param string $field_name
+     * @return bool
+     */
+    private static function is_sub_field_of_current_row($field_name)
     {
         if (!is_string($field_name) || '' === $field_name || !function_exists('get_sub_field_object')) {
             return false;

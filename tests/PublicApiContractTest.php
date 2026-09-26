@@ -42,6 +42,7 @@ class PublicApiContractTest extends TestCase
                 'resolve_post_id' => ['post_id' => false],
                 'resolve_field_post_id' => ['field_name' => self::REQUIRED, 'post_id' => false],
                 'with_acf_post_id' => ['post_id' => self::REQUIRED, 'callback' => self::REQUIRED],
+                'is_empty_post_id' => ['post_id' => self::REQUIRED],
             ],
             Dynamic_Content::class => [
                 'get_text_sources' => [],
