@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf repeater, elementor, dynamic tags, acf flexible content, custom fields
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 2.2.1
+Stable tag: 2.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -102,11 +102,13 @@ If you reuse a Repeater field via an ACF Clone field set to "seamless" display m
 
 A dedicated carousel widget that pulls images from ACF fields. Connect it to your ACF image field and it populates automatically with full styling control.
 
-### ACF Checkbox List
+### ACF Checkbox, Radio, Select & Button Group Lists
 
-Turn an ACF Checkbox field into a polished feature list, comparison list, checklist, or plan summary. Repeaterly Pro displays every choice with separate checked and unchecked icons, and lets you show all choices, selected choices only, or unselected choices only. Keep the field's original order or group checked or unchecked items first.
+Turn an ACF Checkbox, Radio Button, Select or Button Group field into a polished feature list, comparison list, checklist, or plan summary. Repeaterly Pro includes four widgets, one named after each field type: **ACF Checkbox List**, **ACF Radio List**, **ACF Select List** and **ACF Button Group List**. They share the same features, and each one accepts any of the four field types.
 
-Use the ACF choice label or stored value as the item text, style checked and unchecked states independently with Elementor's full Icon List controls, and pull the field from the current post, another post, or an ACF Options Page. Inside a Repeaterly loop template, the widget can also read a checkbox sub-field from the current repeater row.
+Every choice is displayed with separate icons for selected and unselected choices. You can show all choices, selected choices only, or unselected choices only. Keep the field's original order or group selected or unselected items first. Single and multiple Select fields, option groups, and a Radio field's "Other" value are all supported.
+
+Use the ACF choice label or stored value as the item text, style selected and unselected states independently with Elementor's full Icon List controls, and pull the field from the current post, another post, or an ACF Options Page. Inside a Repeaterly loop template, the widgets can also read a sub-field from the current repeater row.
 
 ### Load Content from Any Post or ACF Options Page
 
@@ -222,8 +224,8 @@ Yes. Repeaterly Pro supports built-in pagination and a "Load More" button for bo
 = Can I use third-party Elementor widgets inside my loop templates? =
 Yes. Repeaterly's Dynamic Tags work with any Elementor widget, including widgets from third-party addons. Drop any widget into your loop template and connect it to an ACF field.
 
-= Can I display an ACF Checkbox field as a feature list? =
-Yes, with Repeaterly Pro. The ACF Checkbox List widget displays the choices defined on an ACF Checkbox field with separate checked and unchecked icons. You can filter which choices appear, change their order, use labels or stored values, and style checked and unchecked items independently. It also supports other posts, ACF Options Pages, and checkbox sub-fields inside Repeaterly loop templates.
+= Can I display an ACF Checkbox, Radio, Select or Button Group field as a list? =
+Yes, with Repeaterly Pro. The ACF Checkbox List, ACF Radio List, ACF Select List and ACF Button Group List widgets display the choices defined on the field, with separate icons for selected and unselected choices. You can filter which choices appear, change their order, use labels or stored values, and style selected and unselected items independently. They also support other posts, ACF Options Pages, and sub-fields inside Repeaterly loop templates.
 
 = Do Repeaterly loop templates support Elementor Atomic Widgets? =
 Yes, with Repeaterly Pro. Classic and Atomic Widgets can be used inside repeated templates. Their normal styles and dynamic-tag-driven styles resolve in the correct repeater-row or related-post context, so each rendered item can have its own dynamic colors, backgrounds, borders, responsive values, and other styling.
@@ -256,6 +258,19 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 15. Elementor Atomic Widgets and per-item dynamic styles (Pro) — give every repeated item its own ACF-driven colors, backgrounds, borders, and responsive styling
 
 == Changelog ==
+
+= 2.3.0 =
+Improved: ACF fields render correctly in every Return Format.
+Improved: Checkbox, Radio and Select fields show their choice labels in every format, including "Both (Array)" and grouped choices.
+Improved: the ACF URL tag supports Image, File, Post Object, Relationship, Page Link, Taxonomy and Email fields.
+Improved: the ACF Gallery tag and ACF Gallery widget support the "Image URL" and "Image ID" formats.
+Improved: the Dynamic Image widget supports Image fields set to "Image ID".
+Improved: Dynamic Text and Dynamic Button support Checkbox, Google Map and RGBA color values, and links from Email, Post Object and File fields. Dynamic Text links support ACF Options Pages.
+Improved: Color Picker "RGBA Array" support, and Options Page and repeater row support for Google Map and oEmbed fields.
+Improved: fallback handling for missing images, posts, terms and field values.
+Added: ACF Radio List (Pro), ACF Select List (Pro) and ACF Button Group List (Pro) placeholders in the Repeaterly widget category.
+Improved: Repeaterly overview screen.
+Works with every Repeaterly Pro version; no settings change and no re-save is needed.
 
 = 2.2.1 =
 * Added backward-compatibility notices to the Dynamic Text, Dynamic Image, and Dynamic Button widgets, recommending Elementor's native widgets with Dynamic Tags for new content.

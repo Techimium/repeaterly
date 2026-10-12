@@ -132,10 +132,7 @@ class Image extends Widget_Image
         $settings = $this->get_settings_for_display();
 
         $post_id = $settings['field_type'] === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id($settings['image']) : false;
-        $image = Dynamic_Content::get_value($settings['field_type'], $settings['image'], $post_id);
-        if(is_array($image)){
-            $image = $image['url'];
-        }
+        $image = Dynamic_Content::get_url($settings['field_type'], $settings['image'], $post_id);
         if (!empty($image)) {
             $image = esc_url_raw($image);
         }
@@ -152,7 +149,7 @@ class Image extends Widget_Image
         $has_caption = $this->has_caption($settings);
 
         $link_post_id = $settings['link_to'] === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id(isset($settings['link']) ? $settings['link']['url'] : '') : false;
-        $link = Dynamic_Content::get_value($settings['link_to'], isset($settings['link']) ? $settings['link']['url'] : null, $link_post_id);
+        $link = Dynamic_Content::get_link($settings['link_to'], isset($settings['link']) ? $settings['link']['url'] : null, $link_post_id);
         if(!is_array($link)){
             $link = ['url' => $link];
         }

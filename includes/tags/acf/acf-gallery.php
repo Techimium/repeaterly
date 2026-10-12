@@ -39,14 +39,12 @@ class ACF_Gallery extends Data_Tag {
 	public function get_value( array $options = [] ) {
 		$images = [];
 
-		$value = Acf::get_field_value($this->get_settings('key'), $this->resolve_acf_post_id($this->get_settings('key')));
+		$value = Acf::get_gallery_images($this->get_settings('key'), $this->resolve_acf_post_id($this->get_settings('key')));
 
-		if ( is_array( $value ) && ! empty( $value ) ) {
-			foreach ( $value as $image ) {
-				$images[] = [
-					'id' => $image['ID'],
-				];
-			}
+		foreach ( $value as $image ) {
+			$images[] = [
+				'id' => $image['id'],
+			];
 		}
 
 		return $images;

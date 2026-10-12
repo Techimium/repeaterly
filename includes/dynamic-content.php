@@ -62,6 +62,13 @@ class Dynamic_Content
         return apply_filters(Hook::DYNAMIC_IMAGE_OPTIONS, $options);
     }
 
+    /**
+     * The source's value as it has always been returned (ACF's formatted value for the ACF
+     * sources). Repeaterly Pro 2.4.0 and earlier call this directly, so its signature and return
+     * shapes must not change; widgets use get_text()/get_url()/get_link()/get_gallery().
+     *
+     * @return mixed
+     */
     public static function get_value($source_name, $source_value = null, $post_id = false)
     {
         switch ($source_name) {
@@ -89,5 +96,105 @@ class Dynamic_Content
         }
 
         return apply_filters(Hook::DYNAMIC_VALUE, $source_value, $source_name);
+    }
+    /**
+     * The source as text for the Dynamic Text and Dynamic Button widgets. An ACF value shows as its
+     * Return Format presents it — several values joined with ", " — and a value with no text form
+     * of its own (a "Both (Array)" choice, a map, an RGBA color) shows as the ACF Field tag prints
+     * it. Never "Array", never an error.
+     */
+    public static function get_text($source_name, $source_value = null, $post_id = false)
+    {
+        try {
+            $value = self::get_value($source_name, $source_value, $post_id);
+
+            if (is_scalar($value)) {
+                return (string) $value;
+            }
+
+            if (is_array($value) && $value && array_values($value) === $value && count(array_filter($value, 'is_scalar')) === count($value)) {
+                return implode(', ', array_map('strval', $value));
+            }
+
+            if (null === $value || [] === $value || !self::is_acf_source($source_name) || !$source_value) {
+                return '';
+            }
+
+            return Acf::get_field_text($source_value, self::SUB === $source_name ? false : $post_id, self::SUB === $source_name);
+        } catch (\Throwable $e) {
+            return '';
+        }
+    }
+
+    /** The source as an unescaped URL; for an ACF source, as the ACF URL tag resolves it. */
+    public static function get_url($source_name, $source_value = null, $post_id = false)
+    {
+        try {
+            if (self::is_acf_source($source_name)) {
+                return $source_value ? Acf::get_field_url($source_value, self::SUB === $source_name ? false : $post_id, self::SUB === $source_name) : '';
+            }
+
+            $value = self::get_value($source_name, $source_value, $post_id);
+
+            if (is_array($value) && isset($value['url'])) {
+                $value = $value['url'];
+            }
+
+            return is_string($value) || is_int($value) || is_float($value) ? (string) $value : '';
+        } catch (\Throwable $e) {
+            return '';
+        }
+    }
+
+    /**
+     * The source as a widget link. An ACF link, image or file array replaces the widget's link
+     * options, as it always has, and comes back as ['url' => ...]; any other ACF value is its URL
+     * and keeps the widget's options. Other sources are returned as get_value() returns them.
+     *
+     * @return array{url: string}|mixed
+     */
+    public static function get_link($source_name, $source_value = null, $post_id = false)
+    {
+        if (!self::is_acf_source($source_name)) {
+            return self::get_value($source_name, $source_value, $post_id);
+        }
+
+        try {
+            $value = self::get_value($source_name, $source_value, $post_id);
+
+            if (is_array($value) && isset($value['url']) && is_string($value['url'])) {
+                return ['url' => $value['url']];
+            }
+        } catch (\Throwable $e) {
+            return '';
+        }
+
+        return self::get_url($source_name, $source_value, $post_id);
+    }
+
+    /**
+     * The source as gallery images, [['id' => ..., 'url' => ...], ...] in stored order. For an ACF
+     * source this is the Gallery field's images whatever its Return Format.
+     *
+     * @return array
+     */
+    public static function get_gallery($source_name, $source_value = null, $post_id = false)
+    {
+        try {
+            if (self::is_acf_source($source_name)) {
+                return $source_value ? Acf::get_gallery_images($source_value, self::SUB === $source_name ? false : $post_id, self::SUB === $source_name) : [];
+            }
+
+            $value = self::get_value($source_name, $source_value, $post_id);
+
+            return is_array($value) ? $value : [];
+        } catch (\Throwable $e) {
+            return [];
+        }
+    }
+
+    private static function is_acf_source($source_name)
+    {
+        return self::CUSTOM === $source_name || self::SUB === $source_name;
     }
 }

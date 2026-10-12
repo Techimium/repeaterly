@@ -102,6 +102,21 @@ class Widget_Manager
                 'widget_title' => __('ACF Checkbox List (Pro)', 'repeaterly'),
                 'widget_icon' => 'eicon-checkbox',
             ],
+            [
+                'widget_name' => 'repeaterly-pro-radio-list-promo',
+                'widget_title' => __('ACF Radio List (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-radio',
+            ],
+            [
+                'widget_name' => 'repeaterly-pro-select-list-promo',
+                'widget_title' => __('ACF Select List (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-select',
+            ],
+            [
+                'widget_name' => 'repeaterly-pro-button-group-list-promo',
+                'widget_title' => __('ACF Button Group List (Pro)', 'repeaterly'),
+                'widget_icon' => 'eicon-button',
+            ],
         ]);
 
         foreach ($promotion_widgets as $promotion_widget) {

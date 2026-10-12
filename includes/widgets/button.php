@@ -137,12 +137,12 @@ class Button extends Widget_Button
 
 		if ($this->get_settings('field_type')) {
 			$post_id = $this->get_settings('field_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id($this->get_settings('text')) : false;
-			$settings['text'] = Dynamic_Content::get_value($this->get_settings('field_type'), $this->get_settings('text'), $post_id);
+			$settings['text'] = Dynamic_Content::get_text($this->get_settings('field_type'), $this->get_settings('text'), $post_id);
 		}
 
 		if ($this->get_settings('link_type')) {
 			$link_post_id = $this->get_settings('link_type') === Dynamic_Content::CUSTOM ? $this->resolve_acf_post_id($this->get_settings('link')['url']) : false;
-			$link = Dynamic_Content::get_value($this->get_settings('link_type'), $this->get_settings('link')['url'], $link_post_id);
+			$link = Dynamic_Content::get_link($this->get_settings('link_type'), $this->get_settings('link')['url'], $link_post_id);
 
 			if (is_array($link)) {
 				$settings['link'] = $link;

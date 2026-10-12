@@ -49,8 +49,8 @@ class ACF_Image extends Data_Tag {
 		}
 
 		if ( ! empty( $value ) && is_array( $value ) ) {
-			$image_data['id'] = $value['id'];
-			$image_data['url'] = $value['url'];
+			$image_data['id'] = isset( $value['id'] ) && is_numeric( $value['id'] ) ? $value['id'] : null;
+			$image_data['url'] = isset( $value['url'] ) && is_string( $value['url'] ) ? $value['url'] : '';
 		}
 
 		return $image_data;
