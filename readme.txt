@@ -3,7 +3,7 @@ Contributors: techimium, mdashraful
 Tags: acf repeater, elementor, dynamic tags, acf flexible content, custom fields
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -258,6 +258,9 @@ Browse the [documentation](https://repeaterly.com/documentation) for setup guide
 15. Elementor Atomic Widgets and per-item dynamic styles (Pro) — give every repeated item its own ACF-driven colors, backgrounds, borders, and responsive styling
 
 == Changelog ==
+
+= 2.4.0 =
+Added: ACF Taxonomy Name, Names, Description, URL, Text Field, Image Field and URL Field tags read the terms of an ACF Taxonomy field, including the custom fields of the first term.
 
 = 2.3.0 =
 Improved: ACF fields render correctly in every Return Format.

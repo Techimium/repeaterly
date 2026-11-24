@@ -228,6 +228,72 @@ class Acf
     }
 
     /**
+     * Get the terms a Taxonomy field holds, whatever its Return Format.
+     *
+     * Reads the stored IDs and skips terms that no longer exist.
+     *
+     * @param string $key     Taxonomy field name.
+     * @param mixed  $post_id Post, term or options ID; empty for the current post or repeater row.
+     * @return \WP_Term[] In stored order; empty when there is none.
+     */
+    public static function get_taxonomy_terms($key, $post_id = false)
+    {
+        try {
+            if (!is_string($key) || '' === $key || !function_exists('get_term')) {
+                return [];
+            }
+
+            $field = self::load_field($key, $post_id, false);
+
+            if (!$field || 'taxonomy' !== $field['type'] || !array_key_exists('value', $field)) {
+                return [];
+            }
+
+            $taxonomy = isset($field['taxonomy']) && is_string($field['taxonomy']) ? $field['taxonomy'] : '';
+            $items = is_array($field['value']) ? $field['value'] : [$field['value']];
+            $terms = [];
+
+            foreach ($items as $item) {
+                $term_id = self::extract_id($item);
+                $term = $term_id ? get_term($term_id, $taxonomy) : null;
+
+                if ($term instanceof \WP_Term) {
+                    $terms[] = $term;
+                }
+            }
+
+            return $terms;
+        } catch (\Throwable $e) {
+            return [];
+        }
+    }
+
+    /**
+     * Get the first term a Taxonomy field holds that still exists.
+     *
+     * @param string $key     Taxonomy field name.
+     * @param mixed  $post_id Post, term or options ID; empty for the current post or repeater row.
+     * @return \WP_Term|null
+     */
+    public static function get_taxonomy_term($key, $post_id = false)
+    {
+        $terms = self::get_taxonomy_terms($key, $post_id);
+
+        return $terms ? $terms[0] : null;
+    }
+
+    /**
+     * Get the ACF object ID that addresses a term's custom fields.
+     *
+     * @param \WP_Term $term
+     * @return string
+     */
+    public static function get_term_post_id(\WP_Term $term)
+    {
+        return 'term_' . $term->term_id;
+    }
+
+    /**
      * Get a Gallery field's images in stored order, whatever its Return Format.
      *
      * @param string $key      Field name.
