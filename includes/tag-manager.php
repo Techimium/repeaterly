@@ -12,6 +12,13 @@ use Repeaterly\Includes\Tags\Acf\ACF_Field;
 use Repeaterly\Includes\Tags\Acf\ACF_Gallery;
 use Repeaterly\Includes\Tags\Acf\ACF_Image;
 use Repeaterly\Includes\Tags\Acf\ACF_Number;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_Description;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_Image_Field;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_Name;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_Names;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_Text_Field;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_URL;
+use Repeaterly\Includes\Tags\Acf\ACF_Taxonomy_URL_Field;
 use Repeaterly\Includes\Tags\Acf\ACF_URL;
 use Repeaterly\Includes\Tags\Base\Post_Featured_Image;
 use Repeaterly\Includes\Tags\Base\Post_Content;
@@ -68,6 +75,13 @@ class Tag_Manager
         $tags_manager->register(new ACF_Image());
         $tags_manager->register(new ACF_Number());
         $tags_manager->register(new ACF_URL());
+        $tags_manager->register(new ACF_Taxonomy_Name());
+        $tags_manager->register(new ACF_Taxonomy_Names());
+        $tags_manager->register(new ACF_Taxonomy_Description());
+        $tags_manager->register(new ACF_Taxonomy_URL());
+        $tags_manager->register(new ACF_Taxonomy_Text_Field());
+        $tags_manager->register(new ACF_Taxonomy_Image_Field());
+        $tags_manager->register(new ACF_Taxonomy_URL_Field());
     }
 
     public function register_group($tags_manager)
